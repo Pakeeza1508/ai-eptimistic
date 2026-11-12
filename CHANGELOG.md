@@ -1,3 +1,12 @@
+## v0.4 — Reliability patch (2026-11-12)
+- Analyzer separates independent runs by model and run ID; duplicate trial keys fail loudly.
+- Bootstrap intervals resample question clusters (rather than treating repetitions as independent questions); McNemar uses rep=0 when there are repeated observations.
+- Runner's resume reuses the original initial answer and run ID from saved trials; incompatible model/settings or conflicting starts fail.
+- Non-mock research runs require a verified citation subset; draft-only datasets are blocked unless `--allow-unverified-pilot` is explicitly supplied.
+- Ambiguous complex sentence-style `final_answer` strings are marked `hedged`, not forced into correct/distractor.
+- Added `python tests/test_v04.py` regression checks.
+- Still MOCK-READY only: citation sources are unverified, and real APIs have not been exercised.
+
 # Changelog
 
 ## v0.3 — second-audit fixes (structured scoring, controls, provenance, production tests)
