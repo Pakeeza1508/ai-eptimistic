@@ -1,0 +1,10 @@
+# Core pipeline (runner, scorer, analysis, validator, tests) uses the Python STANDARD
+# LIBRARY ONLY. You can run mock mode + all tests + analysis with no third-party packages.
+
+# Model backends — install only the one you use for a real run:
+anthropic>=0.40    # for --backend anthropic
+openai>=1.40       # for --backend openai
+
+# NOTE: these SDKs are NOT installed in the dev environment, so the real-API adapters in
+# run_experiment.py are UNVERIFIED here. Install one + set the API key, then run a
+# `--limit 2` smoke test before the full run.

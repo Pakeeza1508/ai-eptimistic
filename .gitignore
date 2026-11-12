@@ -1,0 +1,23 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Experiment outputs, credentials and datasets
+results/
+*.jsonl
+*.log
+*.sqlite3
+*.db
+secrets/
+credentials.json
+
+# OS and tooling
+.DS_Store
+.vscode/
+.idea/
