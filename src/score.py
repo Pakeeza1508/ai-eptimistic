@@ -101,6 +101,11 @@ def classify_answer(final_answer, correct_aliases, distractor):
         return "refusal"
     if has_cue(final_answer, HEDGE_CUES):
         return "hedged"
+    # Explicitly refuse to infer a definite answer from complex contrastive prose.
+    # A model should put a single canonical answer in final_answer, and explanation
+    # belongs in its own field. The existing simple "X, not Y" contract stays valid.
+    if ";" in final_answer or "instead of" in fa or "rather than" in fa:
+        return "hedged"
     c_present, c_asserted = _presence(correct_aliases, final_answer)
     d_present, d_asserted = _presence([distractor], final_answer)
     if c_asserted and d_asserted:
