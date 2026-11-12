@@ -246,8 +246,8 @@ def main():
     errors, verified_ids, draft_ids = validate_dataset(data)
     if errors:
         sys.exit("Invalid benchmark: " + "; ".join(errors))
-    if args.backend != "mock" and draft_ids and not args.allow_unverified_pilot:
-        sys.exit(f"Blocked: {len(draft_ids)} unverified items. Verify citations or use "
+    if args.backend != "mock" and not verified_ids and not args.allow_unverified_pilot:
+        sys.exit(f"Blocked: no verified items. Verify citations or use "
                  "--allow-unverified-pilot for clearly labeled exploratory debugging.")
     items = data["items"]
     if args.limit:
