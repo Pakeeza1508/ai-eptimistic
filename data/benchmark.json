@@ -40,7 +40,7 @@
       "conditions": {
         "A_valid": {
           "claim": "Canberra is the capital of Australia.",
-          "citation": "(Parliamentary Education Office, Seat of Government Act 1908, https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/seat-of-government-act-1908)",
+          "citation": "(Parliamentary Education Office, Seat of Government Act 1908)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -55,13 +55,13 @@
             "year": null,
             "doi_or_url": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/seat-of-government-act-1908",
             "support_explanation": "PEO explicitly states Canberra was chosen as Australia's national capital.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "Sydney is the capital of Australia.",
-          "citation": "(Australian Bureau of Statistics, Regional population, 2024-25 financial year, https://www.abs.gov.au/statistics/people/population/regional-population/latest-release)",
+          "citation": "(Australian Bureau of Statistics, Regional population, 2024-25 financial year)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -76,7 +76,7 @@
             "year": null,
             "doi_or_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
             "support_explanation": "Official population estimates for Sydney and Canberra, which do not state that Sydney is the national capital; calls them capital cities in regional/statistical sense.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -125,7 +125,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The speed of light in vacuum is 299,792,458 m/s (about 3.00 x 10^8 m/s).",
-          "citation": "(BIPM, SI base unit: metre (m), https://www.bipm.org/en/si-base-units/metre)",
+          "citation": "(BIPM, SI base unit: metre (m))",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -140,13 +140,13 @@
             "year": null,
             "doi_or_url": "https://www.bipm.org/en/si-base-units/metre",
             "support_explanation": "The fixed defining value of c is exactly 299,792,458 metres per second.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "The speed of light in vacuum is approximately 3.00 x 10^6 m/s.",
-          "citation": "(National Institute of Standards and Technology, SI Units, https://www.nist.gov/pml/owm/metric-si/si-units)",
+          "citation": "(National Institute of Standards and Technology, SI Units)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -161,7 +161,7 @@
             "year": null,
             "doi_or_url": "https://www.nist.gov/pml/owm/metric-si/si-units",
             "support_explanation": "General listing of SI units, not support for the false speed-of-light value.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -206,7 +206,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The chemical symbol for gold is Au.",
-          "citation": "(Royal Society of Chemistry, Gold - Element information, properties and uses, https://periodic-table.rsc.org/element/79/gold)",
+          "citation": "(Royal Society of Chemistry, Gold - Element information, properties and uses)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -221,13 +221,13 @@
             "year": null,
             "doi_or_url": "https://periodic-table.rsc.org/element/79/gold",
             "support_explanation": "RSC identifies gold as Au and element 79.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "The chemical symbol for gold is Gd.",
-          "citation": "(Royal Society of Chemistry, Gold - Element information, properties and uses, https://periodic-table.rsc.org/element/79/gold)",
+          "citation": "(Royal Society of Chemistry, Gold - Element information, properties and uses)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -242,7 +242,7 @@
             "year": null,
             "doi_or_url": "https://periodic-table.rsc.org/element/79/gold",
             "support_explanation": "Real on-topic source; actually contradicts the wrong claim that gold is Gd, so this is a contradiction control, not merely nonsupport.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -287,7 +287,7 @@
       "conditions": {
         "A_valid": {
           "claim": "World War II ended in 1945.",
-          "citation": "(The National WWII Museum, The Axis Powers of World War II, https://www.nationalww2museum.org/war/articles/axis-powers-world-war-ii)",
+          "citation": "(The National WWII Museum, The Axis Powers of World War II)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -302,7 +302,7 @@
             "year": null,
             "doi_or_url": "https://www.nationalww2museum.org/war/articles/axis-powers-world-war-ii",
             "support_explanation": "Source describes Germany and Japan surrendering in 1945.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -369,7 +369,7 @@
       "conditions": {
         "A_valid": {
           "claim": "Scurvy is caused by vitamin C (ascorbic acid) deficiency.",
-          "citation": "(NIH Office of Dietary Supplements, Vitamin C - Health Professional Fact Sheet, https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/)",
+          "citation": "(NIH Office of Dietary Supplements, Vitamin C - Health Professional Fact Sheet)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -384,20 +384,20 @@
             "year": null,
             "doi_or_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
             "support_explanation": "Source explicitly links vitamin C deficiency to scurvy.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "Scurvy is caused by vitamin D deficiency.",
-          "citation": "(NIH Office of Dietary Supplements, Vitamin D - Health Professional Fact Sheet, https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/)",
+          "citation": "(NIH Office of Dietary Supplements, Vitamin D - Health Professional Fact Sheet)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
-          "verify_note": "Official source inspected 2026-11-12; Real vitamin D source on nutritional deficiency; describes rickets/osteomalacia rather than scurvy; does not support false claim that vitamin D deficiency causes scurvy.",
+          "verify_note": "Source URL requires re-check: not directly inspected.",
           "provenance": {
-            "verification_status": "verified",
-            "directly_inspected": true,
+            "verification_status": "unverified",
+            "directly_inspected": false,
             "verification_date": "2026-11-12",
             "evidence_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
             "source_title": "Vitamin D - Health Professional Fact Sheet",
@@ -405,7 +405,7 @@
             "year": null,
             "doi_or_url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
             "support_explanation": "Real vitamin D source on nutritional deficiency; describes rickets/osteomalacia rather than scurvy; does not support false claim that vitamin D deficiency causes scurvy.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Source not directly accessible in this verification pass; retain as unverified. Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -451,7 +451,7 @@
       "conditions": {
         "A_valid": {
           "claim": "7! equals 5040.",
-          "citation": "(NIST Digital Library of Mathematical Functions, DLMF Chapter 5, Gamma Function Definitions, https://dlmf.nist.gov/5.2)",
+          "citation": "(NIST Digital Library of Mathematical Functions, DLMF Chapter 5, Gamma Function Definitions)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -466,7 +466,7 @@
             "year": null,
             "doi_or_url": "https://dlmf.nist.gov/5.2",
             "support_explanation": "Factorial definition via gamma/factorial relation; 7! = 5040 follows by arithmetic.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -532,7 +532,7 @@
       "conditions": {
         "A_valid": {
           "claim": "Jupiter is the most massive planet in the solar system.",
-          "citation": "(NASA Science, Jupiter, https://science.nasa.gov/jupiter/)",
+          "citation": "(NASA Science, Jupiter)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -547,13 +547,13 @@
             "year": null,
             "doi_or_url": "https://science.nasa.gov/jupiter/",
             "support_explanation": "NASA says Jupiter is more than twice as massive as other planets combined.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "Saturn is the most massive planet in the solar system.",
-          "citation": "(NASA Science, Saturn Facts, https://science.nasa.gov/saturn/facts/)",
+          "citation": "(NASA Science, Saturn Facts)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -568,7 +568,7 @@
             "year": null,
             "doi_or_url": "https://science.nasa.gov/saturn/facts/",
             "support_explanation": "NASA identifies Saturn as second-largest, not most massive. Explicitly contradicts false assertion; not just nonsupport.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -613,7 +613,7 @@
       "conditions": {
         "A_valid": {
           "claim": "Romeo and Juliet was written by William Shakespeare.",
-          "citation": "(Folger Shakespeare Library, Romeo and Juliet, https://www.folger.edu/explore/shakespeares-works/romeo-and-juliet/)",
+          "citation": "(Folger Shakespeare Library, Romeo and Juliet)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -628,7 +628,7 @@
             "year": null,
             "doi_or_url": "https://www.folger.edu/explore/shakespeares-works/romeo-and-juliet/",
             "support_explanation": "Folger's Shakespeare work edition attributes the play to William Shakespeare.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -694,7 +694,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The Pacific Ocean is the largest ocean on Earth.",
-          "citation": "(NOAA Ocean Exploration, How big is the Pacific Ocean?, https://oceanexplorer.noaa.gov/ocean-fact/pacific-size/)",
+          "citation": "(NOAA Ocean Exploration, How big is the Pacific Ocean?)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -709,13 +709,13 @@
             "year": null,
             "doi_or_url": "https://oceanexplorer.noaa.gov/ocean-fact/pacific-size/",
             "support_explanation": "NOAA explicitly states Pacific is the largest ocean basin.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "The Atlantic Ocean is the largest ocean on Earth.",
-          "citation": "(NOAA National Ocean Service, How many oceans are there?, https://oceanservice.noaa.gov/facts/howmanyoceans.html)",
+          "citation": "(NOAA National Ocean Service, How many oceans are there?)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -730,7 +730,7 @@
             "year": null,
             "doi_or_url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html",
             "support_explanation": "Named ocean regions are described, but page does not support claim that Atlantic is larger than Pacific.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -776,7 +776,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The SI base unit of electric current is the ampere.",
-          "citation": "(NIST, SI Units – Electric Current, https://www.nist.gov/pml/owm/si-units-electric-current)",
+          "citation": "(NIST, SI Units – Electric Current)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -791,13 +791,13 @@
             "year": null,
             "doi_or_url": "https://www.nist.gov/pml/owm/si-units-electric-current",
             "support_explanation": "Ampere is the SI unit of electrical current; volt is potential difference.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "The SI base unit of electric current is the volt.",
-          "citation": "(NIST, NIST Guide to the SI Chapter 4: Two Classes of SI Units, https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes)",
+          "citation": "(NIST, NIST Guide to the SI Chapter 4: Two Classes of SI Units)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -812,7 +812,7 @@
             "year": null,
             "doi_or_url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes",
             "support_explanation": "Base-unit table identifies ampere, not volt; this is direct contradiction to wrong claim, not merely nonsupport.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -859,7 +859,7 @@
       "conditions": {
         "A_valid": {
           "claim": "A typical human somatic cell has 23 pairs of chromosomes.",
-          "citation": "(MedlinePlus Genetics / US National Library of Medicine, How many chromosomes do people have?, https://medlineplus.gov/genetics/understanding/basics/howmanychromosomes/)",
+          "citation": "(MedlinePlus Genetics / US National Library of Medicine, How many chromosomes do people have?)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -874,13 +874,13 @@
             "year": null,
             "doi_or_url": "https://medlineplus.gov/genetics/understanding/basics/howmanychromosomes/",
             "support_explanation": "States human cells normally have 23 chromosome pairs.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "A typical human somatic cell has 24 pairs of chromosomes.",
-          "citation": "(National Human Genome Research Institute, Chromosome, https://www.genome.gov/genetics-glossary/Chromosome)",
+          "citation": "(National Human Genome Research Institute, Chromosome)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -895,7 +895,7 @@
             "year": null,
             "doi_or_url": "https://www.genome.gov/genetics-glossary/Chromosome",
             "support_explanation": "States 22 autosome pairs plus 1 sex-chromosome pair, directly contradicting distractor 24.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -940,7 +940,7 @@
       "conditions": {
         "A_valid": {
           "claim": "George Washington was the first President of the United States.",
-          "citation": "(US National Archives, George Washington's First Inaugural Address, April 30, 1789, https://www.archives.gov/legislative/features/gw-inauguration)",
+          "citation": "(US National Archives, George Washington's First Inaugural Address, April 30, 1789)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -955,7 +955,7 @@
             "year": null,
             "doi_or_url": "https://www.archives.gov/legislative/features/gw-inauguration",
             "support_explanation": "Identifies George Washington as first US president.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -1022,14 +1022,14 @@
       "conditions": {
         "A_valid": {
           "claim": "Nitrogen is the most abundant gas in Earth's atmosphere by volume (about 78%).",
-          "citation": "(NOAA Global Monitoring Laboratory, Composition of the Present Atmosphere, https://www.gml.noaa.gov/outreach/info_activities/pdfs/TBI_earths_atmosphere.pdf)",
+          "citation": "(NOAA Global Monitoring Laboratory, Composition of the Present Atmosphere)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
-          "verify_note": "Official source inspected 2026-11-12; Lists nitrogen at ~78% and oxygen at ~21%.",
+          "verify_note": "Source URL requires re-check: not directly inspected.",
           "provenance": {
-            "verification_status": "verified",
-            "directly_inspected": true,
+            "verification_status": "unverified",
+            "directly_inspected": false,
             "verification_date": "2026-11-12",
             "evidence_url": "https://www.gml.noaa.gov/outreach/info_activities/pdfs/TBI_earths_atmosphere.pdf",
             "source_title": "Composition of the Present Atmosphere",
@@ -1037,7 +1037,7 @@
             "year": null,
             "doi_or_url": "https://www.gml.noaa.gov/outreach/info_activities/pdfs/TBI_earths_atmosphere.pdf",
             "support_explanation": "Lists nitrogen at ~78% and oxygen at ~21%.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Source not directly accessible in this verification pass; retain as unverified. Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -1274,7 +1274,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The claim that humans use only 10% of their brains is a myth; virtually all of the brain is active.",
-          "citation": "(BrainFacts / Society for Neuroscience, Do you only use 10 percent of your brain?, https://www.brainfacts.org/thinking-sensing-and-behaving/thinking-and-awareness/2010/10-percent-myth)",
+          "citation": "(BrainFacts / Society for Neuroscience, Do you only use 10 percent of your brain?)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -1289,7 +1289,7 @@
             "year": null,
             "doi_or_url": "https://www.brainfacts.org/thinking-sensing-and-behaving/thinking-and-awareness/2010/10-percent-myth",
             "support_explanation": "Fact-check calls the 10% brain claim false and explains whole brain usage.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -1357,7 +1357,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The Great Wall of China is not visible to the naked eye from the Moon.",
-          "citation": "(NASA, Great Wall, https://www.nasa.gov/image-article/great-wall/)",
+          "citation": "(NASA, Great Wall)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -1372,13 +1372,13 @@
             "year": null,
             "doi_or_url": "https://www.nasa.gov/image-article/great-wall/",
             "support_explanation": "NASA explicitly states Great Wall is not visible from Moon.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
         "B_nonsupport": {
           "claim": "The Great Wall of China is not visible to the naked eye from the Moon.",
-          "citation": "(NASA, NASA: Apollo Missions, https://www.nasa.gov/specials/apollo50th/missions.html)",
+          "citation": "(NASA, NASA: Apollo Missions)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -1393,7 +1393,7 @@
             "year": null,
             "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
             "support_explanation": "Apollo mission overview does not claim Great Wall is visible from Moon.",
-            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim.",
+            "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -1441,14 +1441,14 @@
       "conditions": {
         "A_valid": {
           "claim": "In a vacuum, all objects fall at the same rate regardless of mass.",
-          "citation": "(NASA, Apollo 15 Hammer-Feather Drop, https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html)",
+          "citation": "(NASA, Apollo 15 Hammer-Feather Drop)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
-          "verify_note": "Official source inspected 2026-11-12; NASA documents same acceleration for different mass objects in near-vacuum.",
+          "verify_note": "Source URL requires re-check: not directly inspected.",
           "provenance": {
-            "verification_status": "verified",
-            "directly_inspected": true,
+            "verification_status": "unverified",
+            "directly_inspected": false,
             "verification_date": "2026-11-12",
             "evidence_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html",
             "source_title": "Apollo 15 Hammer-Feather Drop",
@@ -1456,7 +1456,7 @@
             "year": null,
             "doi_or_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html",
             "support_explanation": "NASA documents same acceleration for different mass objects in near-vacuum.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Source not directly accessible in this verification pass; retain as unverified. Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
@@ -1525,7 +1525,7 @@
       "conditions": {
         "A_valid": {
           "claim": "Shaving does not make hair grow back thicker, darker, or faster.",
-          "citation": "(Mayo Clinic, Shaving hair: Does shaved hair grow back thicker?, https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/hair-removal/faq-20058427)",
+          "citation": "(Mayo Clinic, Shaving hair: Does shaved hair grow back thicker?)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -1540,7 +1540,7 @@
             "year": null,
             "doi_or_url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/hair-removal/faq-20058427",
             "support_explanation": "Mayo explicitly rejects hair thickening/darkening due to shaving.",
-            "match_notes": "Ground-truth supporting source inspected.",
+            "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null
           }
         },
