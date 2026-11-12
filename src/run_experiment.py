@@ -26,6 +26,7 @@ Usage:
   python src/run_experiment.py --backend anthropic --model <id> --out results/m1.jsonl --seed-secondary
 """
 import argparse, json, os, sys, time, hashlib, datetime, uuid
+from validate_dataset import validate_dataset
 
 CONDITIONS = ["A_valid", "B_nonsupport", "C_fabricated", "D_none"]
 
@@ -99,25 +100,43 @@ BACKENDS = {"anthropic": call_anthropic, "openai": call_openai, "mock": call_moc
 # ---------------- main loop ----------------
 
 def load_completed(path):
-    """For --resume: set of (id, condition, rep) already present in an existing output file."""
-    done = set()
-    if os.path.exists(path):
-        for line in open(path):
-            line = line.strip()
-            if not line:
+    """Resume only complete, consistent prior trials; recover their exact Turn-1 response."""
+    done = {}
+    if not os.path.exists(path):
+        return done
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            if not line.strip():
                 continue
-            try:
-                r = json.loads(line)
-                done.add((r["id"], r["condition"], r.get("rep", 0)))
-            except Exception:
-                continue
+            r = json.loads(line)
+            key = (r["id"], r["condition"], r.get("rep", 0))
+            if key in done:
+                raise ValueError(f"duplicate completed trial: {key}")
+            done[key] = r
     return done
+
+
+def resume_initial(completed, item_id, rep, model, backend, temperature, seeded):
+    """Return previous initial answer and run_id for matched resume, or None."""
+    rows = [r for (iid, _, rr), r in completed.items() if iid == item_id and rr == rep]
+    if not rows:
+        return None
+    first = rows[0]
+    fields = ("initial_raw", "run_id", "model", "backend", "temperature", "seeded_initial")
+    for r in rows:
+        if any(r.get(field) != first.get(field) for field in fields):
+            raise ValueError(f"conflicting prior initial answers/settings for {item_id} rep={rep}")
+    if first.get("model") != model or first.get("backend") != backend or first.get("temperature") != temperature:
+        raise ValueError("Resume model/backend/temperature differs from existing file")
+    if first.get("seeded_initial") != seeded:
+        raise ValueError("Resume seed-secondary mode differs from existing file")
+    return first["initial_raw"], first["run_id"]
 
 def run(items, backend, model, temperature, out_path, sleep, run_id, retries=4,
         seed_secondary=False, repeats=1, resume=False):
     call = BACKENDS[backend]
     is_mock = backend == "mock"
-    completed = load_completed(out_path) if resume else set()
+    completed = load_completed(out_path) if resume else {}
 
     def invoke(msgs, ctx):
         """Return (text, usage, api_error). On total failure raises (so a failed request is
@@ -156,7 +175,11 @@ def run(items, backend, model, temperature, out_path, sleep, run_id, retries=4,
                     continue
                 init_usage = {}
                 init_err = None
-                if seeded:
+                prior = resume_initial(completed, item["id"], rep, model, backend, temperature, seeded) if resume else None
+                active_run_id = prior[1] if prior else run_id
+                if prior:
+                    init_raw = prior[0]
+                elif seeded:
                     init_raw = injected_answer_json(item["distractor"])
                 else:
                     init_raw, init_usage, init_err = invoke(
@@ -171,7 +194,7 @@ def run(items, backend, model, temperature, out_path, sleep, run_id, retries=4,
                           {"role": "user", "content": rebuttal_user(c["claim"], c.get("citation"))}]
                     final_raw, final_usage, final_err = invoke(t2, {**base_ctx, "condition": cond})
                     rec = {
-                        "run_id": run_id, "rep": rep, "trial_index": n,
+                        "run_id": active_run_id, "rep": rep, "trial_index": n,
                         "id": item["id"], "set": item["set"], "push": item["push"],
                         "domain": item["domain"], "difficulty": item["difficulty"],
                         "condition": cond, "question": q,
@@ -208,7 +231,9 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="run only first N items (0 = all)")
     ap.add_argument("--repeats", type=int, default=1, help="repeat each item N times (rep index recorded)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing output file")
-    ap.add_argument("--resume", action="store_true", help="append to an existing file, skipping done (id,condition,rep)")
+    ap.add_argument("--resume", action="store_true", help="append to an existing file, reusing the saved original initial answer")
+    ap.add_argument("--allow-unverified-pilot", action="store_true",
+                    help="EXPLORATORY ONLY: run a real backend on draft citations; never research-ready")
     ap.add_argument("--seed-secondary", action="store_true",
                     help="impose a standardized wrong initial answer for secondary items (Seeded Prior-Answer Correction)")
     args = ap.parse_args()
@@ -218,10 +243,22 @@ def main():
                  "--force to overwrite, or a new --out). This prevents losing a completed run.")
 
     data = json.load(open(args.benchmark))
+    errors, verified_ids, draft_ids = validate_dataset(data)
+    if errors:
+        sys.exit("Invalid benchmark: " + "; ".join(errors))
+    if args.backend != "mock" and draft_ids and not args.allow_unverified_pilot:
+        sys.exit(f"Blocked: {len(draft_ids)} unverified items. Verify citations or use "
+                 "--allow-unverified-pilot for clearly labeled exploratory debugging.")
     items = data["items"]
     if args.limit:
         items = items[:args.limit]
+    if args.backend != "mock" and not args.allow_unverified_pilot:
+        items = [item for item in items if item["id"] in verified_ids]
+    if not items:
+        sys.exit("No eligible items to run")
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
+    if args.backend != "mock" and args.allow_unverified_pilot:
+        print("WARNING: UNVERIFIED exploratory pilot, not valid research results", file=sys.stderr)
     run_id = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ") + "_" + uuid.uuid4().hex[:6]
     print(f"run_id={run_id}  {len(items)} items x {len(CONDITIONS)} conditions x {args.repeats} reps "
           f"on {args.backend}:{args.model}", file=sys.stderr)
