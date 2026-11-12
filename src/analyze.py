@@ -15,8 +15,8 @@ Reports, SEPARATELY per model:
     - corrective update rate per condition over its explicit eligible denominator.
 
 Robustness:
-  - Rows are keyed by (id, rep) so repeated runs are NOT overwritten and repeated
-    measurements of one question are not treated as independent questions in pairing.
+  - Each run is analyzed separately; repeated measurements are clustered by question
+    for bootstrap confidence intervals. McNemar uses rep=0 only if repeats > 1.
   - Parse failures / refusals / hedges are never counted as reversals; their rates are
     reported. No composite epistemic score. Mock runs are flagged as synthetic.
 
@@ -30,15 +30,23 @@ random.seed(12345)
 PRIMARY_WRONG = ["B_nonsupport", "C_fabricated", "D_none"]
 ALL_COND = ["A_valid", "B_nonsupport", "C_fabricated", "D_none"]
 
-def boot_ci(flags, n_boot=10000):
-    if not flags:
+def boot_ci(observations, n_boot=10000):
+    """Cluster bootstrap by question ID; observations are (question_id, binary_flag).
+    Repetitions of one question stay in the same resampled cluster."""
+    if not observations:
         return (None, None)
-    m = len(flags); rates = []
+    clusters = defaultdict(list)
+    for question_id, flag in observations:
+        clusters[question_id].append(int(flag))
+    ids = sorted(clusters)
+    rng = random.Random(12345)
+    rates = []
     for _ in range(n_boot):
-        s = sum(flags[random.randrange(m)] for _ in range(m))
-        rates.append(s / m)
+        selected = [clusters[ids[rng.randrange(len(ids))]] for _ in ids]
+        flat = [v for group in selected for v in group]
+        rates.append(sum(flat) / len(flat))
     rates.sort()
-    return (round(rates[int(0.025 * len(rates))], 3), round(rates[int(0.975 * len(rates))], 3))
+    return (round(rates[int(.025 * len(rates))], 3), round(rates[int(.975 * len(rates))], 3))
 
 def mcnemar_exact(pairs):
     b = sum(1 for a, c in pairs if a and not c)
@@ -55,7 +63,7 @@ def rate(flags):
     return (round(k / n, 3) if n else None, k, n)
 
 def analyze_model(model, rows, boot):
-    out = {"model": model, "n_trials": len(rows), "primary": {}, "secondary": {}, "contrasts": {}}
+    out = {"model": model, "run_id": rows[0].get("run_id"), "n_trials": len(rows), "primary": {}, "secondary": {}, "contrasts": {}}
     is_mock = rows[0].get("backend") == "mock"
     tag = "  [SYNTHETIC MOCK DATA - not a model result]" if is_mock else ""
     print(f"\n=== MODEL: {model} (n_trials={len(rows)}){tag} ===")
@@ -77,7 +85,7 @@ def analyze_model(model, rows, boot):
         elig = [r for r in rows_c if r["initial_label"] == "correct"]
         flags = [1 if r["reversal"] else 0 for r in elig]
         rt, k, nelig = rate(flags)
-        ci = boot_ci(flags, boot)
+        ci = boot_ci([(r["id"], int(r["reversal"])) for r in elig], boot)
         hist = dict(Counter(r["final_label"] for r in elig))
         out["primary"][cond] = {"reversal_rate": rt, "ci95": ci, "k": k, "n_eligible": nelig,
                                 "n_total": len(rows_c), "final_label_hist": hist}
@@ -97,7 +105,8 @@ def analyze_model(model, rows, boot):
         for kkey in keys:
             a, b = pidx[c1][kkey], pidx[c2][kkey]
             if a["initial_label"] == "correct" and b["initial_label"] == "correct":
-                pairs.append((a["reversal"], b["reversal"]))
+                if a["rep"] == 0:
+                    pairs.append((a["reversal"], b["reversal"]))
         bb, cc, nd, p = mcnemar_exact(pairs)
         out["contrasts"][f"{c1}_vs_{c2}"] = {"b": bb, "c": cc, "n_discordant": nd, "p": p,
                                              "n_pairs": len(pairs), "keys_missing_one_side": missing}
@@ -117,7 +126,7 @@ def analyze_model(model, rows, boot):
             elig = [r for r in rows_c if r["initial_label"] not in ("correct", "parse_error")]
             flags = [1 if r["corrective_update"] else 0 for r in elig]
             rt, k, nelig = rate(flags)
-            ci = boot_ci(flags, boot)
+            ci = boot_ci([(r["id"], int(r["corrective_update"])) for r in elig], boot)
             out["secondary"][start][cond] = {"corrective_update_rate": rt, "ci95": ci,
                                              "k": k, "n_eligible": nelig, "n_total": len(rows_c)}
             print(f"{cond:14} {str(rt):>7} {str(ci):>14} {f'{k}/{nelig}':>8}")
@@ -138,19 +147,19 @@ def main():
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.inp) if l.strip()]
-    # group by model, then by run_id (do not mix models or silently merge runs)
-    by_model = defaultdict(list)
+    # Never mix independently collected runs, even when question/rep keys coincide.
+    by_run = defaultdict(list)
     for r in rows:
-        by_model[r.get("model", "?")].append(r)
-
+        by_run[(r.get("model", "?"), r.get("run_id", "legacy-unknown"))].append(r)
     summaries = []
-    for model, mrows in by_model.items():
-        runs = sorted({r.get("run_id") for r in mrows})
-        if len(runs) > 1:
-            print(f"\nNOTE: model {model} has {len(runs)} runs {runs}; "
-                  "they are analysed together but rep/run keys keep observations distinct.",
-                  file=sys.stderr)
-        summaries.append(analyze_model(model, mrows, args.boot))
+    for (model, run_id), run_rows in sorted(by_run.items(), key=lambda kv: str(kv[0])):
+        seen = set()
+        for r in run_rows:
+            key = (r["set"], r["id"], r.get("rep", 0), r["condition"])
+            if key in seen:
+                raise ValueError(f"Duplicate trial in model={model} run={run_id}: {key}")
+            seen.add(key)
+        summaries.append(analyze_model(model, run_rows, args.boot))
 
     json.dump({"models": summaries}, open(args.out, "w"), indent=2)
     print(f"\nWrote summary -> {args.out}")
