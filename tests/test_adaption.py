@@ -53,6 +53,21 @@ def main():
         assert options["tools"] == []
         assert backend.list_available_hosted_models()[0]["id"] == "sample-hosted-model"
 
+        # CLI selection must include only IDs requested, not simply first N dataset items.
+        # Pure mock invocation avoids billing or network calls.
+        import subprocess
+        with tempfile.TemporaryDirectory() as d:
+            file_path = str(Path(d) / "selected_mock.jsonl")
+            proc = subprocess.run([sys.executable, "src/run_experiment.py",
+                                   "--backend", "mock", "--ids", "P01,P07",
+                                   "--limit", "2", "--out", file_path],
+                                   cwd=ROOT, text=True, capture_output=True)
+            assert proc.returncode == 0, proc.stderr
+            selected_rows = [json.loads(line) for line in
+                             Path(file_path).read_text(encoding="utf-8").splitlines()]
+            assert len(selected_rows) == 8
+            assert {row["id"] for row in selected_rows} == {"P01", "P07"}
+
         # Run a complete two-item synthetic smoke test through the same runner.
         # It must be marked mock and never call the fake Adaption provider.
         with tempfile.TemporaryDirectory() as d:
