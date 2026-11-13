@@ -1,3 +1,14 @@
+## Sprint M2 — Adaption SDK adapter (2026-11-13)
+
+- Added `src/adaption_backend.py` for hosted-model Responses API, with no tools,
+  no agentic memory and no server-side response retention.
+- Registered `--backend adaption` in the existing runner and added `--ids` to select
+  precisely the eligible smoke-test questions before `--limit`.
+- Added `tests/test_adaption.py` (offline mocked API contract), optional SDK requirement,
+  and `docs/M2_ADAPTION_PILOT.md` for secure model/key setup and execution.
+- **No real inference API calls or credit balance verification performed yet.**
+- Preserves the M1 evidence gate and original frozen study protocol.
+
 ## Sprint M1 — Verified pilot evidence (2026-11-13, sprint work)
 - A and B `verified` statuses now require an `evidence_record`. It must hold the attached claim
   that was checked, the method, the URL (plus the archive URL for archived evidence), and a quote or
