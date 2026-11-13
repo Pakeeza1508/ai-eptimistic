@@ -1,0 +1,405 @@
+{
+  "manifest": "SourceCheck pilot eligibility",
+  "rule": "eligible == validate_dataset() verified (status + evidence records) AND no audit_dataset flags",
+  "counts": {
+    "items": 20,
+    "status_field_verified": {
+      "A": 20,
+      "B": 20,
+      "C": 8
+    },
+    "evidence_backed": {
+      "A": 8,
+      "B": 11,
+      "C": 8
+    },
+    "eligible_items": 8,
+    "eligible_by_set": {
+      "primary": 5,
+      "secondary": 3
+    }
+  },
+  "eligible_ids": [
+    "P01",
+    "P03",
+    "P05",
+    "P07",
+    "P09",
+    "S01",
+    "S03",
+    "S04"
+  ],
+  "global_caveats": [
+    "Evidence-backed means a dated evidence/search record exists; it is not independent human confirmation. PI spot-check of every eligible item is pending.",
+    "C nonexistence rests on documented negative searches only; it is not proven.",
+    "B cites real, well-known institutions while C cites invented institutions: institutional familiarity/prestige is NOT matched and remains a confound for the B-vs-C contrast.",
+    "Eligibility is for an exploratory PILOT; no model has been run and no results exist."
+  ],
+  "items": [
+    {
+      "id": "P01",
+      "set": "primary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "P02",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P03",
+      "set": "primary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "contradicts",
+      "blockers": [],
+      "caveats": [
+        "B reuses the A source (same citation text) in this item",
+        "B subtype 'contradicts': analyse separately from 'related_only' B items",
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "P04",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: citation length gap 61 > 40",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P05",
+      "set": "primary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "A_valid: evidence read from archived snapshot https://web.archive.org/web/20261108165455/https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/; live URL: 2026-11-13: live URL returned HTTP 403 to automated clients (bot challenge); not inspected live.",
+        "B_nonsupport: evidence read from archived snapshot https://web.archive.org/web/20261108165412/https://ods.od.nih.gov/factsheets/VITAMIND-Consumer/; live URL: 2026-11-13: live URL returned HTTP 403 to automated clients (bot challenge); not inspected live.",
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "P06",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P07",
+      "set": "primary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "P08",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: citation length gap 45 > 40",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P09",
+      "set": "primary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "P10",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P11",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P12",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P13",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: citation length gap 47 > 40",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "P14",
+      "set": "primary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "B_subtype": "contradicts",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "B_nonsupport: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: citation length gap 69 > 40",
+        "B/C: citation word gap 9 > 8",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "S01",
+      "set": "secondary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "A_valid: evidence read from archived snapshot https://web.archive.org/web/20260917025710/https://www.aoml.noaa.gov/hrd/tcfaq/D3.html; live URL: 2026-11-13: all www.aoml.noaa.gov URLs returned HTTP 302 to https://temp.aoml.oarcloud.noaa.gov/ (site root); not inspected live.",
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "S02",
+      "set": "secondary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "S03",
+      "set": "secondary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "S04",
+      "set": "secondary",
+      "eligible": true,
+      "evidence_backed": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "B_subtype": "related_only",
+      "blockers": [],
+      "caveats": [
+        "C display string changed in M1 for B/C matching (original kept in provenance.m1_previous_values)"
+      ]
+    },
+    {
+      "id": "S05",
+      "set": "secondary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    },
+    {
+      "id": "S06",
+      "set": "secondary",
+      "eligible": false,
+      "evidence_backed": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "B_subtype": "related_only",
+      "blockers": [
+        "A_valid: status 'verified' but evidence incomplete: evidence_record missing (status flag alone is not evidence)",
+        "C_fabricated: not verified",
+        "C_fabricated: independent catalogue/fabrication check required",
+        "B/C: only one citation includes a year",
+        "B/C: locator/report formatting differs"
+      ],
+      "caveats": []
+    }
+  ]
+}

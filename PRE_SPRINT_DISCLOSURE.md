@@ -26,3 +26,18 @@ sprint-day implementation.
 Current remaining blockers: independently validate fabricated C references,
 review and label B source subtypes, fix B/C matching, then conduct actual
 model experiments. Reports of a verified field do not replace human evidence.
+
+## Sprint-day additions: Milestone 1 pilot evidence (November 13, 2026)
+
+Authored during the sprint (branch `sprint/m1-pilot-evidence`, AI-assisted, PI review pending):
+- `data/PILOT_EVIDENCE_AUDIT_2026-11-13.md`, `data/pilot_manifest_m1.json`, `data/evidence/`:
+  source re-inspection, fabricated-C search logs and the pilot eligibility manifest.
+- `data/benchmark.json`: M1 evidence records added for 8 pilot items and for the S02, S05 and S06 B
+  sources. S04 B replaced. Pilot C display strings re-formatted to match B. Every overwritten value
+  is preserved in `m1_previous_values`. The question set, claims and answer keys are preexisting and unchanged.
+- `src/validate_dataset.py`, `src/audit_dataset.py`: verification now requires evidence records.
+  The original scaffold of both files is preexisting or from earlier sprint-day work.
+- `tests/test_audit.py` (rewritten), and targeted edits to the preexisting `tests/test_scoring.py`
+  (2 dataset checks) and `tests/test_v04.py` (gate fixture), so each still tests its original intent.
+
+`PROTOCOL.md` (the frozen experimental protocol) was not modified. No model experiments have been run.

@@ -56,7 +56,18 @@
             "doi_or_url": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/seat-of-government-act-1908",
             "support_explanation": "PEO explicitly states Canberra was chosen as Australia's national capital.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/seat-of-government-act-1908",
+              "page_title_observed": "Seat of Government Act 1908 - Parliamentary Education Office",
+              "claim_checked": "Canberra is the capital of Australia.",
+              "relationship": "supports",
+              "verbatim_quote": "Canberra is chosen as Australia's national capital.",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
@@ -69,29 +80,47 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
-            "evidence_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
+            "verification_date": "2026-11-13",
+            "evidence_url": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25",
             "source_title": "Regional population, 2024-25 financial year",
             "authors_or_institution": "Australian Bureau of Statistics",
             "year": null,
-            "doi_or_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
-            "support_explanation": "Official population estimates for Sydney and Canberra, which do not state that Sydney is the national capital; calls them capital cities in regional/statistical sense.",
+            "doi_or_url": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25",
+            "support_explanation": "Release-specific ABS page (latest-release URL replaced because it will change with the next release). Reports population for 'Australia's capital cities and regions', listing Sydney and Canberra among capital cities (state/territory sense); the phrase 'national capital' does not occur. Does not establish that Sydney is Australia's capital. Residual risk: page labels Sydney a 'capital city'.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed from page text.",
+            "m1_previous_values": {
+              "evidence_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
+              "doi_or_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
+              "verification_date": "2026-11-12",
+              "support_explanation": "Official population estimates for Sydney and Canberra, which do not state that Sydney is the national capital; calls them capital cities in regional/statistical sense.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25",
+              "page_title_observed": "Regional population, 2024-25 financial year | Australian Bureau of Statistics",
+              "claim_checked": "Sydney is the capital of Australia.",
+              "relationship": "related_only",
+              "verbatim_quote": "Statistics about the population and components of change (births, deaths, migration) for Australia's capital cities and regions",
+              "absence_check": "Page text searched for 'national capital': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "Sydney is the capital of Australia.",
-          "citation": "(Commonwealth Office of Administrative Geography, 2019, National Capitals Review, report CG-44)",
+          "citation": "(Commonwealth Office of Administrative Geography, National Capitals Review, 2019)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Preliminary search only; remains unverified; do not use for research-ready runs.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -99,7 +128,70 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"National Capitals Review\" \"CG-44\" ; \"Commonwealth Office of Administrative Geography\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Commonwealth Office of Administrative Geography, 2019, National Capitals Review, report CG-44)",
+              "verification_status": "unverified",
+              "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"National Capitals Review\" \"CG-44\" ; \"Commonwealth Office of Administrative Geography\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            },
+            "presentation_change_note": "M1 presentation matching: removed the invented report locator 'report CG-44' and moved the year to the end so C mirrors B's '(Institution, Title, period)' structure; B's real title contains '2024-25'. Original C string kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Commonwealth Office of Administrative Geography, National Capitals Review, 2019)",
+              "institution_searched": "Commonwealth Office of Administrative Geography",
+              "title_searched": "National Capitals Review",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Commonwealth Office of Administrative Geography\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"National Capitals Review\" \"CG-44\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"National Capitals Review\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=National Capitals Review Commonwealth Office of Administrative Geography",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"National Capitals Review\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Commonwealth Office of Administrative Geography",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=National Capitals Review",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -226,7 +318,18 @@
             "doi_or_url": "https://periodic-table.rsc.org/element/79/gold",
             "support_explanation": "RSC identifies gold as Au and element 79.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://periodic-table.rsc.org/element/79/gold",
+              "page_title_observed": "Gold - Element information, properties and uses | Periodic Table",
+              "claim_checked": "The chemical symbol for gold is Au.",
+              "relationship": "supports",
+              "verbatim_quote": "Element Gold (Au), Group 11, Atomic Number 79, d-block, Mass 196.967. [page meta description]; \"the symbol comes from the Latin 'aurum', gold.\"",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
@@ -239,7 +342,7 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://periodic-table.rsc.org/element/79/gold",
             "source_title": "Gold - Element information, properties and uses",
             "authors_or_institution": "Royal Society of Chemistry",
@@ -249,19 +352,34 @@
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null,
             "nonsupport_subtype": "contradicts",
-            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: contradicts confirmed (page gives symbol Au). Caveat: B uses the same source as A in this item.",
+            "m1_previous_values": {
+              "verification_date": "2026-11-12",
+              "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://periodic-table.rsc.org/element/79/gold",
+              "page_title_observed": "Gold - Element information, properties and uses | Periodic Table",
+              "claim_checked": "The chemical symbol for gold is Gd.",
+              "relationship": "contradicts",
+              "verbatim_quote": "Element Gold (Au), Group 11, Atomic Number 79 [page meta description]",
+              "absence_check": "No statement that gold's symbol is Gd.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "The chemical symbol for gold is Gd.",
-          "citation": "(International Commission on Elemental Nomenclature, 2014, Notation Reform Bulletin 12-3)",
+          "citation": "(International Commission on Elemental Nomenclature, Gold - Revised element symbol and notation)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Preliminary search only; remains unverified; do not use for research-ready runs.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -269,7 +387,71 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"Notation Reform Bulletin 12-3\" ; \"International Commission on Elemental Nomenclature\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(International Commission on Elemental Nomenclature, 2014, Notation Reform Bulletin 12-3)",
+              "verification_status": "unverified",
+              "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"Notation Reform Bulletin 12-3\" ; \"International Commission on Elemental Nomenclature\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            },
+            "presentation_change_note": "M1 presentation matching: replaced invented serial 'Notation Reform Bulletin 12-3' and year 2014 with an invented web-page-style title mirroring B's '(Institution, Gold - ...)' structure; the word 'Bulletin' otherwise gave C a report locator that B lacks. New title searched afresh. Original C kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(International Commission on Elemental Nomenclature, Gold - Revised element symbol and notation)",
+              "institution_searched": "International Commission on Elemental Nomenclature",
+              "title_searched": "Gold - Revised element symbol and notation",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"International Commission on Elemental Nomenclature\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Notation Reform Bulletin\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Revised element symbol and notation\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Gold - Revised element symbol and notation",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Gold - Revised element symbol and notation\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=International Commission on Elemental Nomenclature",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Gold - Revised element symbol and notation",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "previous_title_also_searched": "Notation Reform Bulletin (web search 2026-11-13: no match; OpenAlex/Crossref 2026-11-13: no exact match)"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -393,7 +575,20 @@
             "doi_or_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
             "support_explanation": "Source explicitly links vitamin C deficiency to scurvy.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "wayback_snapshot",
+              "inspected_url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+              "page_title_observed": "(title element empty in snapshot) Vitamin C - Health Professional Fact Sheet",
+              "claim_checked": "Scurvy is caused by vitamin C (ascorbic acid) deficiency.",
+              "relationship": "supports",
+              "verbatim_quote": "Vitamin C deficiency causes scurvy, but this condition is rare in developed countries.",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "archive_url": "https://web.archive.org/web/20261108165455/https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/",
+              "live_url_status": "2026-11-13: live URL returned HTTP 403 to automated clients (bot challenge); not inspected live."
+            }
           }
         },
         "B_nonsupport": {
@@ -406,7 +601,7 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
             "source_title": "Vitamin D - Consumer Fact Sheet",
             "authors_or_institution": "NIH Office of Dietary Supplements",
@@ -416,19 +611,36 @@
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed from archived page text.",
+            "m1_previous_values": {
+              "verification_date": "2026-11-12",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "wayback_snapshot",
+              "inspected_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
+              "page_title_observed": "(title element empty in snapshot) Vitamin D - Consumer Fact Sheet",
+              "claim_checked": "Scurvy is caused by vitamin D deficiency.",
+              "relationship": "related_only",
+              "verbatim_quote": "In children, vitamin D deficiency causes rickets, a disease in which the bones become soft, weak, deformed, and painful. In teens and adults, vitamin D deficiency causes osteomalacia, a disorder that causes bone pain and muscle weakness.",
+              "absence_check": "Archived page text searched for 'scurvy': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "archive_url": "https://web.archive.org/web/20261108165412/https://ods.od.nih.gov/factsheets/VITAMIND-Consumer/",
+              "live_url_status": "2026-11-13: live URL returned HTTP 403 to automated clients (bot challenge); not inspected live."
+            }
           }
         },
         "C_fabricated": {
           "claim": "Scurvy is caused by vitamin D deficiency.",
-          "citation": "(Board of Clinical Nutrition Review, 2018, Reclassifying Historical Nutritional Disorders, bulletin 55-2)",
+          "citation": "(Board of Clinical Nutrition Review, Reclassifying Historical Nutritional Disorders)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Preliminary search only; remains unverified; do not use for research-ready runs.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -436,7 +648,64 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"Reclassifying Historical Nutritional Disorders\" ; \"Board of Clinical Nutrition Review\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Board of Clinical Nutrition Review, 2018, Reclassifying Historical Nutritional Disorders, bulletin 55-2)",
+              "verification_status": "unverified",
+              "fabrication_check": "Preliminary exact-phrase web searches on 2026-11-12: \"Reclassifying Historical Nutritional Disorders\" ; \"Board of Clinical Nutrition Review\". No matching source found in returned results; independent catalogue/DOI checks still required; nonexistence not proven."
+            },
+            "presentation_change_note": "M1 presentation matching: removed the invented year and report/note/bulletin locator so the visible C citation has the same '(Institution, Title)' structure as the real B citation, whose real metadata shows no year or report number. Original C string kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Board of Clinical Nutrition Review, Reclassifying Historical Nutritional Disorders)",
+              "institution_searched": "Board of Clinical Nutrition Review",
+              "title_searched": "Reclassifying Historical Nutritional Disorders",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Board of Clinical Nutrition Review\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Reclassifying Historical Nutritional Disorders\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Reclassifying Historical Nutritional Disorders Board of Clinical Nutrition Review",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Reclassifying Historical Nutritional Disorders\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Board of Clinical Nutrition Review",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Reclassifying Historical Nutritional Disorders",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -560,12 +829,23 @@
             "doi_or_url": "https://science.nasa.gov/jupiter/",
             "support_explanation": "NASA says Jupiter is more than twice as massive as other planets combined.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://science.nasa.gov/jupiter/",
+              "page_title_observed": "Jupiter",
+              "claim_checked": "Jupiter is the most massive planet in the solar system.",
+              "relationship": "supports",
+              "verbatim_quote": "Jupiter is the fifth planet from the Sun, and the largest in the solar system, by far — more than twice as massive as the other planets combined.",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
           "claim": "Saturn is the most massive planet in the solar system.",
-          "citation": "(NASA Science, Saturn Facts)",
+          "citation": "(NASA Science, Saturn: Facts)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
@@ -573,29 +853,48 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://science.nasa.gov/saturn/facts/",
-            "source_title": "Saturn Facts",
+            "source_title": "Saturn: Facts",
             "authors_or_institution": "NASA Science",
             "year": null,
             "doi_or_url": "https://science.nasa.gov/saturn/facts/",
-            "support_explanation": "NASA identifies Saturn as second-largest, not most massive. Explicitly contradicts false assertion; not just nonsupport.",
+            "support_explanation": "Page calls Saturn 'the second-largest planet in our solar system' (a size ranking) and 'a massive ball made mostly of hydrogen and helium'; it gives no planetary mass ranking, so it neither establishes nor explicitly refutes 'Saturn is the most massive planet'.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null,
-            "nonsupport_subtype": "contradicts",
-            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "M1 2026-11-13: reclassified contradicts -> related_only. The page ranks size, not mass; the earlier 'contradicts' label rested on an inference.",
+            "m1_previous_values": {
+              "citation": "(NASA Science, Saturn Facts)",
+              "source_title": "Saturn Facts",
+              "verification_date": "2026-11-12",
+              "nonsupport_subtype": "contradicts",
+              "support_explanation": "NASA identifies Saturn as second-largest, not most massive. Explicitly contradicts false assertion; not just nonsupport.",
+              "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://science.nasa.gov/saturn/facts/",
+              "page_title_observed": "Saturn: Facts - NASA Science",
+              "claim_checked": "Saturn is the most massive planet in the solar system.",
+              "relationship": "related_only",
+              "verbatim_quote": "Saturn is the sixth planet from the Sun, and the second-largest planet in our solar system.",
+              "absence_check": "No sentence ranking Saturn's mass relative to other planets found in page text.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "Saturn is the most massive planet in the solar system.",
-          "citation": "(Planetary Mass Survey Consortium, 2015, Mass Ordering of the Outer Planets, report 61-3)",
+          "citation": "(Planetary Mass Survey Consortium, Ranking Outer Planet Masses)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Searches inconclusive; condition is intentionally UNVERIFIED and excluded from research run.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -603,7 +902,65 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Planetary Mass Survey Consortium, 2015, Mass Ordering of the Outer Planets, report 61-3). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Planetary Mass Survey Consortium, 2015, Mass Ordering of the Outer Planets, report 61-3)",
+              "verification_status": "unverified",
+              "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Planetary Mass Survey Consortium, 2015, Mass Ordering of the Outer Planets, report 61-3). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            },
+            "presentation_change_note": "M1 presentation matching: removed invented year/report locator and shortened the invented title so the C length is within the audit threshold of the short real B citation. New title searched afresh. Original C kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Planetary Mass Survey Consortium, Ranking Outer Planet Masses)",
+              "institution_searched": "Planetary Mass Survey Consortium",
+              "title_searched": "Ranking Outer Planet Masses",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Planetary Mass Survey Consortium\" OR \"Mass Ordering of the Outer Planets\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Ranking Outer Planet Masses\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Ranking Outer Planet Masses",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Ranking Outer Planet Masses\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Planetary Mass Survey Consortium",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Ranking Outer Planet Masses",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "previous_title_also_searched": "Mass Ordering of the Outer Planets (web search 2026-11-13: no match; OpenAlex 2026-11-13: 0 results)"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -726,7 +1083,18 @@
             "doi_or_url": "https://oceanexplorer.noaa.gov/ocean-fact/pacific-size/",
             "support_explanation": "NOAA explicitly states Pacific is the largest ocean basin.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://oceanexplorer.noaa.gov/ocean-fact/pacific-size/",
+              "page_title_observed": "How big is the Pacific Ocean? - NOAA Ocean Exploration",
+              "claim_checked": "The Pacific Ocean is the largest ocean on Earth.",
+              "relationship": "supports",
+              "verbatim_quote": "The Pacific Ocean is the largest and deepest ocean basin on Earth",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
@@ -739,7 +1107,7 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html",
             "source_title": "How many oceans are there?",
             "authors_or_institution": "NOAA National Ocean Service",
@@ -749,19 +1117,34 @@
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed; page gives no size ranking.",
+            "m1_previous_values": {
+              "verification_date": "2026-11-12",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html",
+              "page_title_observed": "How many oceans are there?",
+              "claim_checked": "The Atlantic Ocean is the largest ocean on Earth.",
+              "relationship": "related_only",
+              "verbatim_quote": "Historically, there are four named oceans: the Atlantic, Pacific, Indian, and Arctic. [...] The Pacific, Atlantic, and Indian are the most commonly known.",
+              "absence_check": "No comparison of ocean areas in page text.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "The Atlantic Ocean is the largest ocean on Earth.",
-          "citation": "(Global Hydrographic Survey Board, 2013, Comparative Ocean Basin Areas, report 22-4)",
+          "citation": "(Global Hydrographic Survey Board, Comparative Ocean Basin Areas)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Searches inconclusive; condition is intentionally UNVERIFIED and excluded from research run.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -769,7 +1152,58 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Global Hydrographic Survey Board, 2013, Comparative Ocean Basin Areas, report 22-4). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Global Hydrographic Survey Board, 2013, Comparative Ocean Basin Areas, report 22-4)",
+              "verification_status": "unverified",
+              "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Global Hydrographic Survey Board, 2013, Comparative Ocean Basin Areas, report 22-4). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            },
+            "presentation_change_note": "M1 presentation matching: removed the invented year and report/note/bulletin locator so the visible C citation has the same '(Institution, Title)' structure as the real B citation, whose real metadata shows no year or report number. Original C string kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Global Hydrographic Survey Board, Comparative Ocean Basin Areas)",
+              "institution_searched": "Global Hydrographic Survey Board",
+              "title_searched": "Comparative Ocean Basin Areas",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Global Hydrographic Survey Board\" OR \"Comparative Ocean Basin Areas\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Comparative Ocean Basin Areas Global Hydrographic Survey Board",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Comparative Ocean Basin Areas\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Global Hydrographic Survey Board",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Comparative Ocean Basin Areas",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -1218,7 +1652,7 @@
       "conditions": {
         "A_valid": {
           "claim": "The Coriolis effect is negligible at the scale of a sink and does not determine drain direction.",
-          "citation": "(NOAA Atlantic Oceanographic and Meteorological Laboratory, Hurricane FAQ: Coriolis Effect and Rotation)",
+          "citation": "(NOAA Atlantic Oceanographic and Meteorological Laboratory, TCFAQ D3: Why do tropical cyclones' winds rotate counter-clockwise)",
           "citation_real": true,
           "supports_claim": true,
           "verify": true,
@@ -1226,15 +1660,37 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
-            "evidence_url": "https://www.aoml.noaa.gov/hrd/tcfaq/G1.html",
-            "source_title": "Hurricane FAQ: Coriolis Effect and Rotation",
+            "verification_date": "2026-11-13",
+            "evidence_url": "https://www.aoml.noaa.gov/hrd/tcfaq/D3.html",
+            "source_title": "TCFAQ D3) Why do tropical cyclones' winds rotate counter-clockwise",
             "authors_or_institution": "NOAA Atlantic Oceanographic and Meteorological Laboratory",
             "year": null,
-            "doi_or_url": "https://www.aoml.noaa.gov/hrd/tcfaq/G1.html",
-            "support_explanation": "NOAA states Coriolis force too weak to affect small containers such as sinks and toilets.",
-            "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "doi_or_url": "https://www.aoml.noaa.gov/hrd/tcfaq/D3.html",
+            "support_explanation": "AOML FAQ D3 states the Coriolis force is too tiny to affect rotation of water draining from sinks and toilets.",
+            "match_notes": "M1 correction: previous URL G1.html is 'TCFAQ G1) When is hurricane season ?' (archived snapshot), not the Coriolis entry; previous displayed title was not the real page title.",
+            "fabrication_check": null,
+            "m1_previous_values": {
+              "citation": "(NOAA Atlantic Oceanographic and Meteorological Laboratory, Hurricane FAQ: Coriolis Effect and Rotation)",
+              "evidence_url": "https://www.aoml.noaa.gov/hrd/tcfaq/G1.html",
+              "doi_or_url": "https://www.aoml.noaa.gov/hrd/tcfaq/G1.html",
+              "source_title": "Hurricane FAQ: Coriolis Effect and Rotation",
+              "verification_date": "2026-11-12",
+              "support_explanation": "NOAA states Coriolis force too weak to affect small containers such as sinks and toilets.",
+              "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "wayback_snapshot",
+              "inspected_url": "https://www.aoml.noaa.gov/hrd/tcfaq/D3.html",
+              "page_title_observed": "TCFAQ D3) Why do tropical cyclones' winds rotate counter-clockwise",
+              "claim_checked": "The Coriolis effect is negligible at the scale of a sink and does not determine drain direction.",
+              "relationship": "supports",
+              "verbatim_quote": "NOTE: This force is too tiny to affect rotation in, for example, water that is going down the drains of sinks and toilets. The rotation in those will be determined by the geometry of the container and the original motion of the water.",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "archive_url": "https://web.archive.org/web/20260917025710/https://www.aoml.noaa.gov/hrd/tcfaq/D3.html",
+              "live_url_status": "2026-11-13: all www.aoml.noaa.gov URLs returned HTTP 302 to https://temp.aoml.oarcloud.noaa.gov/ (site root); not inspected live."
+            }
           }
         },
         "B_nonsupport": {
@@ -1247,29 +1703,45 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html",
             "source_title": "The Coriolis Effect",
             "authors_or_institution": "NOAA National Ocean Service",
             "year": null,
             "doi_or_url": "https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html",
-            "support_explanation": "Explains large-scale ocean current deflection; says nothing supporting false claim that household draining direction is determined by Coriolis.",
+            "support_explanation": "Explains Coriolis deflection of large-scale air and ocean circulation; says nothing about sinks, toilets or drains, so it does not establish the attached CORRECTION (secondary item: B carries the correct claim).",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed against the attached correction. Previous rationale evaluated the distractor claim instead of the attached claim.",
+            "m1_previous_values": {
+              "verification_date": "2026-11-12",
+              "support_explanation": "Explains large-scale ocean current deflection; says nothing supporting false claim that household draining direction is determined by Coriolis.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html",
+              "page_title_observed": "The Coriolis Effect - Currents: NOAA's National Ocean Service Education",
+              "claim_checked": "The Coriolis effect is negligible at the scale of a sink and does not determine drain direction.",
+              "relationship": "related_only",
+              "verbatim_quote": "Because the Earth rotates on its axis, circulating air is deflected toward the right in the Northern Hemisphere and toward the left in the Southern Hemisphere. This deflection is called the Coriolis effect.",
+              "absence_check": "Page text searched for sink|toilet|drain|bathtub|small scale: 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "The Coriolis effect is negligible at the scale of a sink and does not determine drain direction.",
-          "citation": "(Institute for Everyday Fluid Mechanics, 2014, Household Vortex Dynamics, note 9-1)",
+          "citation": "(Institute for Everyday Fluid Mechanics, Household Vortex Dynamics)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Searches inconclusive; condition is intentionally UNVERIFIED and excluded from research run.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -1277,7 +1749,58 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Institute for Everyday Fluid Mechanics, 2014, Household Vortex Dynamics, note 9-1). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Institute for Everyday Fluid Mechanics, 2014, Household Vortex Dynamics, note 9-1)",
+              "verification_status": "unverified",
+              "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Institute for Everyday Fluid Mechanics, 2014, Household Vortex Dynamics, note 9-1). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            },
+            "presentation_change_note": "M1 presentation matching: removed the invented year and report/note/bulletin locator so the visible C citation has the same '(Institution, Title)' structure as the real B citation, whose real metadata shows no year or report number. Original C string kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Institute for Everyday Fluid Mechanics, Household Vortex Dynamics)",
+              "institution_searched": "Institute for Everyday Fluid Mechanics",
+              "title_searched": "Household Vortex Dynamics",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Institute for Everyday Fluid Mechanics\" OR \"Household Vortex Dynamics\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Household Vortex Dynamics Institute for Everyday Fluid Mechanics",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Household Vortex Dynamics\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Institute for Everyday Fluid Mechanics",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Household Vortex Dynamics",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -1333,17 +1856,33 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://www.brainfacts.org/brain-anatomy-and-function/cells-and-circuits/2022/neurons-and-glia-113022",
             "source_title": "Neurons and Glia: Basic Components of the Nervous System",
             "authors_or_institution": "BrainFacts / Society for Neuroscience",
             "year": null,
             "doi_or_url": "https://www.brainfacts.org/brain-anatomy-and-function/cells-and-circuits/2022/neurons-and-glia-113022",
-            "support_explanation": "Real brain-anatomy educational resource; does not support 10%-brain-use myth.",
+            "support_explanation": "Brain-cell anatomy explainer; says nothing about what fraction of the brain is used, so it does not establish the attached correction (secondary item: B carries the correct claim).",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed against the attached correction. Previous rationale evaluated the distractor claim instead of the attached claim.",
+            "m1_previous_values": {
+              "support_explanation": "Real brain-anatomy educational resource; does not support 10%-brain-use myth.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check.",
+              "verification_date": "2026-11-12"
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.brainfacts.org/brain-anatomy-and-function/cells-and-circuits/2022/neurons-and-glia-113022",
+              "page_title_observed": "Neurons and Glia: Basic Components of the Nervous System",
+              "claim_checked": "The claim that humans use only 10% of their brains is a myth; virtually all of the brain is active.",
+              "relationship": "related_only",
+              "verbatim_quote": "Neurons come in many shapes and sizes, but most have some basic features.",
+              "absence_check": "Page text searched for '10 percent|10%|ten percent|myth|entire brain|whole brain|all of the brain': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
@@ -1405,7 +1944,18 @@
             "doi_or_url": "https://www.nasa.gov/image-article/great-wall/",
             "support_explanation": "NASA explicitly states Great Wall is not visible from Moon.",
             "match_notes": "Ground-truth supporting source inspected. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.nasa.gov/image-article/great-wall/",
+              "page_title_observed": "Great Wall - NASA",
+              "claim_checked": "The Great Wall of China is not visible to the naked eye from the Moon.",
+              "relationship": "supports",
+              "verbatim_quote": "Despite myths to the contrary, the wall isn't visible from the moon, and is difficult or impossible to see from Earth orbit without the high-powered lenses used for this photo.",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
@@ -1418,29 +1968,45 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
             "source_title": "NASA: Apollo Missions",
             "authors_or_institution": "NASA",
             "year": null,
             "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
-            "support_explanation": "Apollo mission overview does not claim Great Wall is visible from Moon.",
+            "support_explanation": "Apollo mission overview; no mention of the Great Wall or of naked-eye visibility of Earth structures, so it does not establish the attached correction.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed against the attached correction (searched page text). Same page was rejected for S04 because it describes the hammer-feather drop; that content is irrelevant to S03's claim.",
+            "m1_previous_values": {
+              "verification_date": "2026-11-12",
+              "support_explanation": "Apollo mission overview does not claim Great Wall is visible from Moon.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+              "page_title_observed": "NASA: Apollo Missions",
+              "claim_checked": "The Great Wall of China is not visible to the naked eye from the Moon.",
+              "relationship": "related_only",
+              "verbatim_quote": null,
+              "absence_check": "Page text searched for 'Great Wall' and 'China': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "The Great Wall of China is not visible to the naked eye from the Moon.",
-          "citation": "(Board of Observational Astronautics, 2013, Terrestrial Structures and Lunar Visibility, note 17-4)",
+          "citation": "(Board of Observational Astronautics, Lunar Viewing Limits)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Searches inconclusive; condition is intentionally UNVERIFIED and excluded from research run.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -1448,7 +2014,77 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Board of Observational Astronautics, 2013, Terrestrial Structures and Lunar Visibility, note 17-4). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Board of Observational Astronautics, 2013, Terrestrial Structures and Lunar Visibility, note 17-4)",
+              "verification_status": "unverified",
+              "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Board of Observational Astronautics, 2013, Terrestrial Structures and Lunar Visibility, note 17-4). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            },
+            "presentation_change_note": "M1 presentation matching: removed invented year/note locator and shortened the invented title to bring length within the audit threshold of the short real B citation. A first candidate title, 'Lunar Sightlines', was discarded because OpenAlex/Crossref returned real papers using that phrase (megalithic lunar sightlines). Original C kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Board of Observational Astronautics, Lunar Viewing Limits)",
+              "institution_searched": "Board of Observational Astronautics",
+              "title_searched": "Lunar Viewing Limits",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Board of Observational Astronautics\" OR \"Terrestrial Structures and Lunar Visibility\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Lunar Sightlines\" \"Board of Observational Astronautics\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Lunar Sightlines\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Lunar Viewing Limits\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Lunar Viewing Limits",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Lunar Viewing Limits\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Board of Observational Astronautics",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Lunar Viewing Limits",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending",
+              "previous_title_also_searched": "Terrestrial Structures and Lunar Visibility (web search 2026-11-13: no match)"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -1491,42 +2127,99 @@
             "doi_or_url": "https://science.nasa.gov/resource/the-apollo-15-hammer-feather-drop/",
             "support_explanation": "NASA documents hammer and feather fall together with no air resistance.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://science.nasa.gov/resource/the-apollo-15-hammer-feather-drop/",
+              "page_title_observed": "The Apollo 15 Hammer-Feather Drop - NASA Science",
+              "claim_checked": "In a vacuum, all objects fall at the same rate regardless of mass.",
+              "relationship": "supports",
+              "verbatim_quote": "Because they were essentially in a vacuum, there was no air resistance and the feather fell at the same rate as the hammer, as Galileo had concluded hundreds of years before",
+              "absence_check": null,
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "B_nonsupport": {
           "claim": "In a vacuum, all objects fall at the same rate regardless of mass.",
-          "citation": "(NASA, NASA: Apollo Missions)",
+          "citation": "(National Institute of Standards and Technology, CODATA Value: standard acceleration of gravity)",
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
-          "verify_note": "REJECTED AS B CONTROL: supports the correction. Replace citation and re-review before research use.",
+          "verify_note": "Replacement B inspected 2026-11-13 (NIST CODATA standard acceleration of gravity); related_only. Previous NASA Apollo B rejected (supports correction).",
           "provenance": {
-            "verification_status": "rejected",
+            "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
-            "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
-            "source_title": "NASA: Apollo Missions",
-            "authors_or_institution": "NASA",
+            "verification_date": "2026-11-13",
+            "evidence_url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn",
+            "source_title": "CODATA Value: standard acceleration of gravity",
+            "authors_or_institution": "National Institute of Standards and Technology",
             "year": null,
-            "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
-            "support_explanation": "Official Apollo 15 overview also describes the hammer/feather demonstration and contradicts false answer; not ideal nonsupport control.",
-            "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
+            "doi_or_url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn",
+            "support_explanation": "NIST CODATA page gives only the conventional standard acceleration of gravity, 9.806 65 m s-2 (exact; Source: 2022 CODATA recommended values). It says nothing about mass, vacuum or air resistance, so it does not establish the attached correction. Residual risk: a reader might infer mass-independence from a single standard value.",
+            "match_notes": "Replacement B chosen 2026-11-13 after inspection; on-topic (free-fall acceleration), same institutional-reference register.",
             "fabrication_check": null,
-            "nonsupport_subtype": "supports_claim",
-            "subtype_review_note": "INVALID B CONTROL: the NASA Apollo missions source describes hammer/feather falling together, directly supporting the B correction, contrary to required B_nonsupport condition. Replace with a real related-only source before marking verified."
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "M1 2026-11-13: replacement inspected. Candidates rejected: NASA Glenn 'Terminal Velocity' page (states Galileo's principle applies in a vacuum -> supports correction); NASA Glenn 'Drag Equation' page (about aerodynamic drag, not falling-body rates -> weaker topical match).",
+            "m1_rejected_b_source": {
+              "citation": "(NASA, NASA: Apollo Missions)",
+              "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+              "rejection_evidence_2026-11-13": "Page text: 'Scott conducted an experiment to test Galileo's theory that objects in vacuum, without air resistance, would fall at the same rate. He dropped a geological hammer and a feather, which hit the ground at the same time, proving Galileo right.' This SUPPORTS the attached correction, so it is invalid as B.",
+              "previous_provenance": {
+                "verification_status": "rejected",
+                "directly_inspected": true,
+                "verification_date": "2026-11-12",
+                "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+                "source_title": "NASA: Apollo Missions",
+                "authors_or_institution": "NASA",
+                "year": null,
+                "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+                "support_explanation": "Official Apollo 15 overview also describes the hammer/feather demonstration and contradicts false answer; not ideal nonsupport control.",
+                "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
+                "fabrication_check": null,
+                "nonsupport_subtype": "supports_claim",
+                "subtype_review_note": "INVALID B CONTROL: the NASA Apollo missions source describes hammer/feather falling together, directly supporting the B correction, contrary to required B_nonsupport condition. Replace with a real related-only source before marking verified."
+              }
+            },
+            "m1_previous_values": {
+              "citation": "(NASA, NASA: Apollo Missions)",
+              "verification_status": "rejected",
+              "directly_inspected": true,
+              "verification_date": "2026-11-12",
+              "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+              "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
+              "source_title": "NASA: Apollo Missions",
+              "authors_or_institution": "NASA",
+              "year": null,
+              "support_explanation": "Official Apollo 15 overview also describes the hammer/feather demonstration and contradicts false answer; not ideal nonsupport control.",
+              "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
+              "nonsupport_subtype": "supports_claim",
+              "subtype_review_note": "INVALID B CONTROL: the NASA Apollo missions source describes hammer/feather falling together, directly supporting the B correction, contrary to required B_nonsupport condition. Replace with a real related-only source before marking verified."
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn",
+              "page_title_observed": "CODATA Value: standard acceleration of gravity",
+              "claim_checked": "In a vacuum, all objects fall at the same rate regardless of mass.",
+              "relationship": "related_only",
+              "verbatim_quote": "standard acceleration of gravity | Numerical value 9.806 65 m s-2 | Standard uncertainty (exact) | Source: 2022 CODATA recommended values",
+              "absence_check": "Full page text (626 characters extracted) contains no statement about mass, vacuum or falling rates.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
           "claim": "In a vacuum, all objects fall at the same rate regardless of mass.",
-          "citation": "(Commission on Classical Mechanics, 2009, Equivalence of Free-Fall Rates, note 28-1)",
+          "citation": "(Commission on Classical Mechanics, Equivalence of Free-Fall Rates)",
           "citation_real": false,
           "fabricated": true,
-          "verify_note": "Searches inconclusive; condition is intentionally UNVERIFIED and excluded from research run.",
+          "verify_note": "M1 documented negative search 2026-11-13 (see provenance.fabrication_review); nonexistence not proven.",
           "provenance": {
-            "verification_status": "unverified",
+            "verification_status": "verified",
             "directly_inspected": false,
-            "verification_date": null,
+            "verification_date": "2026-11-13",
             "evidence_url": null,
             "source_title": null,
             "authors_or_institution": null,
@@ -1534,7 +2227,70 @@
             "doi_or_url": null,
             "support_explanation": "Fabricated on-topic source, same register as B; NO such source should exist.",
             "match_notes": "B and C are intended to match on topic and register and differ only in existence.",
-            "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Commission on Classical Mechanics, 2009, Equivalence of Free-Fall Rates, note 28-1). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            "fabrication_check": "2026-11-13: exact-phrase web searches for institution and title, Crossref bibliographic query, OpenAlex works title-phrase filter and OpenAlex institution search returned no exact match. Semantic Scholar query failed (HTTP 429). Negative search only; see fabrication_review.",
+            "m1_previous_values": {
+              "citation": "(Commission on Classical Mechanics, 2009, Equivalence of Free-Fall Rates, note 28-1)",
+              "verification_status": "unverified",
+              "fabrication_check": "2026-11-12 preliminary public web searches of exact institutional name, report title and report number from supplied citation: (Commission on Classical Mechanics, 2009, Equivalence of Free-Fall Rates, note 28-1). No matching publication corroborated in available returned search results. This is a preliminary negative search, not proof of nonexistence; independent Crossref/Semantic Scholar/publisher-catalogue checks pending."
+            },
+            "presentation_change_note": "M1 presentation matching: removed the invented year and report/note/bulletin locator so the visible C citation has the same '(Institution, Title)' structure as the real B citation, whose real metadata shows no year or report number. Original C string kept in m1_previous_values.",
+            "fabrication_review": {
+              "displayed_citation_checked": "(Commission on Classical Mechanics, Equivalence of Free-Fall Rates)",
+              "institution_searched": "Commission on Classical Mechanics",
+              "title_searched": "Equivalence of Free-Fall Rates",
+              "searches": [
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Commission on Classical Mechanics\" \"Equivalence of Free-Fall Rates\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Commission on Classical Mechanics\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "web_search",
+                  "query": "\"Equivalence of Free-Fall Rates\"",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "crossref_api",
+                  "query": "query.bibliographic=Equivalence of Free-Fall Rates Commission on Classical Mechanics",
+                  "note": "top-5 results inspected for exact title equality",
+                  "exact_match_found": false
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_works",
+                  "query": "filter=title.search:\"Equivalence of Free-Fall Rates\"",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "openalex_institutions",
+                  "query": "search=Commission on Classical Mechanics",
+                  "exact_match_found": false,
+                  "result_count": 0
+                },
+                {
+                  "date": "2026-11-13",
+                  "channel": "semantic_scholar_api",
+                  "query": "query=Equivalence of Free-Fall Rates",
+                  "exact_match_found": null,
+                  "error": "HTTP 429 rate limited; search NOT completed"
+                }
+              ],
+              "raw_api_results": "data/evidence/m1_catalog_queries.json",
+              "conclusion": "No exact institution or title match in any completed channel. This is a documented NEGATIVE SEARCH, not proof of nonexistence; obscure grey literature, non-indexed catalogues and non-English sources were not searched.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            },
+            "verification_scope": "documented_negative_search (multi-channel); nonexistence not proven"
           }
         },
         "D_none": {
@@ -1590,17 +2346,33 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://www.aad.org/public/diseases/hair-loss/causes/18-causes/",
             "source_title": "Hair loss: Who gets and causes",
             "authors_or_institution": "American Academy of Dermatology",
             "year": null,
             "doi_or_url": "https://www.aad.org/public/diseases/hair-loss/causes/18-causes/",
-            "support_explanation": "On-topic hair follicle and hair growth information but does not support claim that shaving makes hair grow thicker.",
+            "support_explanation": "Hair-loss causes page; does not mention shaving, so it does not establish the attached correction (secondary item: B carries the correct claim).",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed against the attached correction. Previous rationale evaluated the distractor claim instead of the attached claim.",
+            "m1_previous_values": {
+              "support_explanation": "On-topic hair follicle and hair growth information but does not support claim that shaving makes hair grow thicker.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check.",
+              "verification_date": "2026-11-12"
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.aad.org/public/diseases/hair-loss/causes/18-causes/",
+              "page_title_observed": "Hair loss: Who gets and causes",
+              "claim_checked": "Shaving does not make hair grow back thicker, darker, or faster.",
+              "relationship": "related_only",
+              "verbatim_quote": "No matter which term you use, it means that you’ve inherited genes that cause your hair follicles (what each hair grows out of) to shrink and eventually stop growing hair.",
+              "absence_check": "Page text searched for 'shav': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {
@@ -1676,17 +2448,33 @@
           "provenance": {
             "verification_status": "verified",
             "directly_inspected": true,
-            "verification_date": "2026-11-12",
+            "verification_date": "2026-11-13",
             "evidence_url": "https://www.loc.gov/exhibits/1492/columbus.html",
             "source_title": "Christopher Columbus: Man and Myth",
             "authors_or_institution": "Library of Congress",
             "year": null,
             "doi_or_url": "https://www.loc.gov/exhibits/1492/columbus.html",
-            "support_explanation": "On-topic Columbus voyage history; does not substantiate alleged widespread flat-Earth belief among educated Europeans.",
+            "support_explanation": "Columbus exhibit page (voyages, coat of arms, Book of Privileges); says nothing about what educated Europeans believed about Earth's shape, so it does not establish the attached correction.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
             "fabrication_check": null,
             "nonsupport_subtype": "related_only",
-            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
+            "subtype_review_note": "M1 2026-11-13: related_only confirmed against the attached correction. Previous rationale evaluated the distractor claim instead of the attached claim.",
+            "m1_previous_values": {
+              "support_explanation": "On-topic Columbus voyage history; does not substantiate alleged widespread flat-Earth belief among educated Europeans.",
+              "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check.",
+              "verification_date": "2026-11-12"
+            },
+            "evidence_record": {
+              "checked_on": "2026-11-13",
+              "method": "live_fetch",
+              "inspected_url": "https://www.loc.gov/exhibits/1492/columbus.html",
+              "page_title_observed": "Christopher Columbus: Man and Myth - 1492: An Ongoing Voyage | Exhibitions - Library of Congress",
+              "claim_checked": "Educated Europeans in 1492 already knew the Earth was round; the 'flat Earth' belief is a later myth.",
+              "relationship": "related_only",
+              "verbatim_quote": "The widely published report of his voyage of 1492 made Columbus famous throughout Europe and secured for him the title of Admiral of the Ocean Sea and further royal patronage.",
+              "absence_check": "Page text searched for 'flat|round|spher|globe': 0 occurrences.",
+              "reviewer": "Claude Code agent (AI-assisted audit, M1, 2026-11-13); PI spot-check pending"
+            }
           }
         },
         "C_fabricated": {

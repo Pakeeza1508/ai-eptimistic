@@ -51,10 +51,21 @@ B's missing `nonsupport_subtype` (choose `contradicts` or `related_only` after m
 review), and B/C visible-citation length/year/locator imbalances. This checks only metadata;
 it **does not browse the web, prove fabrication or count as a research experiment**.
 
-**Verified-status audit (last recorded evidence pass):** A=20/20, B=19/20 (S04 rejected as invalid control), C=0/20;
+**Verified-status audit (12 Nov evidence pass, superseded below):** A=20/20, B=19/20 (S04 rejected as invalid control), C=0/20;
 thus no question is research-ready. Original 29-test suite and v0.4 suite should be rerun
 locally after every pull. See `data/CITATION_AUDIT_2026-11-12.md` and
 `PRE_SPRINT_DISCLOSURE.md` for evidence and attribution.
+
+**Milestone 1 pilot evidence (13 Nov 2026, sprint work):** a `verified` status flag now counts only
+when an evidence record backs it (see `src/validate_dataset.py`). Evidence-backed: **A=8, B=11, C=8**.
+The status fields read A=20, B=20, C=8. **Fully eligible pilot items: 8/20:** P01, P03, P05, P07 and P09
+(primary) and S01, S03 and S04 (seeded secondary). C "verified" means a documented multi-channel negative
+search, not proven nonexistence. A PI spot-check is still pending. Details, evidence links and unresolved
+confounds are in `data/PILOT_EVIDENCE_AUDIT_2026-11-13.md`.
+
+```bash
+python src/audit_dataset.py data/benchmark.json --manifest-out data/pilot_manifest_m1.json
+```
 
 ## Setup
 

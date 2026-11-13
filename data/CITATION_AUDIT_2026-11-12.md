@@ -79,3 +79,13 @@ The current `--require-verified` validation gate should continue to block resear
 - S04's NASA Apollo B citation appears to directly **support** the correction in that secondary trial, violating the B non-support control. It has therefore been rejected instead of quietly counted as verified.
 - Updated citation metadata tally: A **20/20**, B **19/20**, C **0/20**; research-eligible questions remain **0/20**.
 - No C source was promoted to verified and no real-model experiments have yet been performed.
+
+## Milestone 1 update (13 November 2026)
+
+The counts above are status-field counts from the 12 Nov pass. They are superseded by
+`data/PILOT_EVIDENCE_AUDIT_2026-11-13.md`, which re-inspected sources and found these problems:
+- S01 A: the URL recorded above (`tcfaq/G1.html`) is a different FAQ entry. The supporting text is at `tcfaq/D3.html`.
+- S04 B rejection confirmed and the source replaced.
+- P07 B relabelled from contradicts to related_only.
+
+Evidence-backed counts are now A=8, B=11, C=8, with 8 fully eligible pilot items.

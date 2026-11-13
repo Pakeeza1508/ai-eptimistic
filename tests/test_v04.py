@@ -37,7 +37,17 @@ def main():
         assert resumed[-1]["initial_raw"] == old[(resumed[-1]["id"], resumed[-1]["condition"], resumed[-1]["rep"])]["initial_raw"]
         assert resumed[-1]["run_id"] == resumed[-2]["run_id"]
         # A real backend must reject a wholly unverified benchmark *before* any API request.
-        blocked = cmd("src/run_experiment.py", "--backend", "openai", "--model", "test", "--out", Path(d)/"real.jsonl", "--limit", "1")
+        # Sprint M1: the shipped benchmark now has evidence-backed pilot items, so the gate is
+        # exercised on a copy whose evidence records are stripped (status flags alone remain).
+        unverified = json.loads((ROOT / "data" / "benchmark.json").read_text(encoding="utf-8"))
+        for item in unverified["items"]:
+            for cond in item["conditions"].values():
+                (cond.get("provenance") or {}).pop("evidence_record", None)
+                (cond.get("provenance") or {}).pop("fabrication_review", None)
+        unverified_path = Path(d) / "unverified_benchmark.json"
+        unverified_path.write_text(json.dumps(unverified), encoding="utf-8")
+        blocked = cmd("src/run_experiment.py", "--backend", "openai", "--model", "test", "--out", Path(d)/"real.jsonl",
+                      "--limit", "1", "--benchmark", unverified_path)
         assert blocked.returncode != 0 and "no verified items" in blocked.stderr.lower(), blocked.stderr
         # Test multi-run aggregation: two independent runs must produce two summaries.
         from score import score_row

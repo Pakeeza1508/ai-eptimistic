@@ -91,11 +91,20 @@ except Exception:
 check("scored row is JSON-serializable", ser_ok)
 
 # ---- dataset validation (production fn) ----
-data = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data", "benchmark.json")))
+data = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data", "benchmark.json"), encoding="utf-8"))
 errors, verified, draft = vd.validate_dataset(data)
 check("dataset: no structural errors", len(errors) == 0)
-check("dataset: nothing auto-verified (all unverified)", len(verified) == 0)
-check("dataset: all items present as draft", len(draft) == len(data["items"]))
+# Sprint M1 (2026-11-13): some items now carry documented evidence. The original intent of this
+# check -- nothing is verified automatically -- is kept: once the evidence records are stripped,
+# the status flags that remain must verify NOTHING.
+import copy as _copy
+flags_only = _copy.deepcopy(data)
+for _it in flags_only["items"]:
+    for _c in _it["conditions"].values():
+        (_c.get("provenance") or {}).pop("evidence_record", None)
+        (_c.get("provenance") or {}).pop("fabrication_review", None)
+check("dataset: nothing verified by status flags alone", len(vd.validate_dataset(flags_only)[1]) == 0)
+check("dataset: verified + draft cover every item", sorted(verified + draft) == sorted(i["id"] for i in data["items"]))
 
 bad = {"items": [
     {"id": "X", "set": "primary", "push": "distractor", "question": "q", "correct_answer": "a",

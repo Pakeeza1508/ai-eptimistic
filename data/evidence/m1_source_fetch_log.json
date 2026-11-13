@@ -1,0 +1,32 @@
+{
+  "description": "Source-page fetch log for the M1 pilot evidence audit, 2026-11-13. Live fetches used curl with a desktop-browser User-Agent; archived evidence used Wayback Machine snapshots (id_ raw mode). Status = HTTP status after redirects. Page texts were searched locally for the quoted sentences recorded in data/benchmark.json evidence_record fields.",
+  "date": "2026-11-13",
+  "fetches": [
+    {"item": "P01", "cond": "A", "url": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/seat-of-government-act-1908", "status": 200, "used": true},
+    {"item": "P01", "cond": "B", "url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release", "status": 200, "used": false, "note": "moving 'latest-release' URL; replaced by release-specific URL below"},
+    {"item": "P01", "cond": "B", "url": "https://www.abs.gov.au/statistics/people/population/regional-population/2024-25", "status": 200, "used": true},
+    {"item": "P03", "cond": "A,B", "url": "https://periodic-table.rsc.org/element/79/gold", "status": 200, "used": true},
+    {"item": "P05", "cond": "A", "url": "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/", "status": 403, "used": false, "note": "bot challenge page ('Just a moment...'); also 403 via a separate web-fetch agent"},
+    {"item": "P05", "cond": "A", "url": "https://web.archive.org/web/20261108165455/https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/", "status": 200, "used": true},
+    {"item": "P05", "cond": "B", "url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/", "status": 403, "used": false, "note": "bot challenge page; also 403 via a separate web-fetch agent"},
+    {"item": "P05", "cond": "B", "url": "https://web.archive.org/web/20261108165412/https://ods.od.nih.gov/factsheets/VITAMIND-Consumer/", "status": 200, "used": true},
+    {"item": "P07", "cond": "A", "url": "https://science.nasa.gov/jupiter/", "status": 200, "used": true},
+    {"item": "P07", "cond": "B", "url": "https://science.nasa.gov/saturn/facts/", "status": 200, "used": true},
+    {"item": "P09", "cond": "A", "url": "https://oceanexplorer.noaa.gov/ocean-fact/pacific-size/", "status": 200, "used": true},
+    {"item": "P09", "cond": "B", "url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html", "status": 200, "used": true},
+    {"item": "S01", "cond": "A", "url": "https://www.aoml.noaa.gov/hrd/tcfaq/G1.html", "status": 302, "final_url": "https://temp.aoml.oarcloud.noaa.gov/", "used": false, "note": "previously recorded URL; archived copy (web.archive.org/web/20261002052808) shows it is 'TCFAQ G1) When is hurricane season ?', not the Coriolis entry"},
+    {"item": "S01", "cond": "A", "url": "https://www.aoml.noaa.gov/", "status": 302, "final_url": "https://temp.aoml.oarcloud.noaa.gov", "used": false, "note": "site-wide redirect on 2026-11-13"},
+    {"item": "S01", "cond": "A", "url": "https://web.archive.org/web/20260917025710/https://www.aoml.noaa.gov/hrd/tcfaq/D3.html", "status": 200, "used": true, "note": "correct Coriolis/sink entry located via web search, read from archive"},
+    {"item": "S01", "cond": "B", "url": "https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html", "status": 200, "used": true},
+    {"item": "S02", "cond": "B", "url": "https://www.brainfacts.org/brain-anatomy-and-function/cells-and-circuits/2022/neurons-and-glia-113022", "status": 200, "used": true},
+    {"item": "S03", "cond": "A", "url": "https://www.nasa.gov/image-article/great-wall/", "status": 200, "used": true},
+    {"item": "S03,S04", "cond": "B", "url": "https://www.nasa.gov/specials/apollo50th/missions.html", "status": 200, "used": true, "note": "valid related_only B for S03; confirms rejection for S04 (describes hammer-feather drop)"},
+    {"item": "S04", "cond": "A", "url": "https://science.nasa.gov/resource/the-apollo-15-hammer-feather-drop/", "status": 200, "used": true},
+    {"item": "S04", "cond": "B candidate", "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/termvel/", "status": 200, "used": false, "note": "REJECTED: states Galileo's principle applies in a vacuum (supports the correction)"},
+    {"item": "S04", "cond": "B candidate", "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-equation/", "status": 200, "used": false, "note": "not chosen: aerodynamic drag topic, weaker match to falling-body claim"},
+    {"item": "S04", "cond": "B candidate", "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/weight-and-mass/", "status": 404, "used": false},
+    {"item": "S04", "cond": "B", "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn", "status": 200, "used": true, "note": "selected replacement B (related_only)"},
+    {"item": "S05", "cond": "B", "url": "https://www.aad.org/public/diseases/hair-loss/causes/18-causes/", "status": 200, "used": true},
+    {"item": "S06", "cond": "B", "url": "https://www.loc.gov/exhibits/1492/columbus.html", "status": 200, "used": true}
+  ]
+}

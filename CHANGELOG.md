@@ -1,3 +1,17 @@
+## Sprint M1 — Verified pilot evidence (2026-11-13, sprint work)
+- A and B `verified` statuses now require an `evidence_record`. It must hold the attached claim
+  that was checked, the method, the URL (plus the archive URL for archived evidence), and a quote or
+  absence check. C requires a `fabrication_review` with at least 3 completed search channels run on
+  the exact displayed citation. A status flag alone never makes an item eligible.
+- A B source that supports its attached claim is rejected, and is a structural error if marked `verified`.
+- S04 B replaced: the NASA Apollo page supports the correction, so it was swapped for NIST CODATA
+  standard gravity, which is related_only.
+- Corrected S01 A, whose recorded URL `G1.html` is a different FAQ entry; it now points to D3.
+  P07 B subtype changed from contradicts to related_only. P01 B now uses the release-specific URL.
+- Pilot C strings reformatted to `(Institution, Title)` to match B; the originals are preserved.
+- New: `data/PILOT_EVIDENCE_AUDIT_2026-11-13.md`, `data/pilot_manifest_m1.json`, `data/evidence/`.
+- Result: 8/20 items fully eligible for an exploratory pilot. No model has been run.
+
 ## v0.4 — Reliability patch (2026-11-12)
 - Analyzer separates independent runs by model and run ID; duplicate trial keys fail loudly.
 - Bootstrap intervals resample question clusters (rather than treating repetitions as independent questions); McNemar uses rep=0 when there are repeated observations.
