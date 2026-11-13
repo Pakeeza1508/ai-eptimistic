@@ -10,7 +10,7 @@ are stored in `data/benchmark.json` under `conditions.<condition>.provenance`.
 | Condition | Citation source records marked verified | Remaining |
 | --- | ---: | ---: |
 | A_valid (real, supports ground truth) | 20/20 | 0 |
-| B_nonsupport (real, does not support false claim) | 20/20 | 0 |
+| B_nonsupport (real, does not support false claim) | **19/20** | **1 rejected (S04)** |
 | C_fabricated (existence/fabrication fully validated) | **0/20** | **20** |
 | D_none | Not applicable | — |
 | Complete research-eligible benchmark items | **0/20** | **20** |
@@ -72,3 +72,10 @@ The current `--require-verified` validation gate should continue to block resear
 - Freeze and document B/C wording/format controls prior to any confirmatory experiment.
 - Only then run verified-only real-model pilots; use `--allow-unverified-pilot` solely for
   software smoke tests, never for scientific findings.
+
+## Sprint-day correction (13 November 2026)
+
+- Manually classified B citation subtypes from recorded evidence rationales: 8 `contradicts`, 11 `related_only`, and 1 rejected `supports_claim` (S04). These labels need a second source-level review.
+- S04's NASA Apollo B citation appears to directly **support** the correction in that secondary trial, violating the B non-support control. It has therefore been rejected instead of quietly counted as verified.
+- Updated citation metadata tally: A **20/20**, B **19/20**, C **0/20**; research-eligible questions remain **0/20**.
+- No C source was promoted to verified and no real-model experiments have yet been performed.
