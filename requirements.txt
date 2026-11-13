@@ -8,3 +8,6 @@ openai>=1.40       # for --backend openai
 # NOTE: these SDKs are NOT installed in the dev environment, so the real-API adapters in
 # run_experiment.py are UNVERIFIED here. Install one + set the API key, then run a
 # `--limit 2` smoke test before the full run.
+
+# Sprint M2 Adaption Responses API backend; requires SDK 0.16+.
+adaption>=0.16.0  # for --backend adaption; installed locally only for API pilot
