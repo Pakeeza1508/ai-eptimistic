@@ -67,6 +67,15 @@ confounds are in `data/PILOT_EVIDENCE_AUDIT_2026-11-13.md`.
 python src/audit_dataset.py data/benchmark.json --manifest-out data/pilot_manifest_m1.json
 ```
 
+## Sprint Milestone 2 — Adaption model pilot
+
+The Adaption hosted-model adapter is on the `sprint/m2-adaption-pilot` development branch.
+See `docs/M2_ADAPTION_PILOT.md` for secure Windows setup, available model lookup, offline
+regression tests and one-item API smoke-test commands. This is *integration code only*;
+no real model result has been collected. The M1 pilot evidence must still receive PI
+spot-checks. `--ids` selects specific benchmark question IDs; the verified-only gate
+still applies to real backends.
+
 ## Setup
 
 ```bash
