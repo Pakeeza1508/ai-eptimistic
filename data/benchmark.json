@@ -77,7 +77,9 @@
             "doi_or_url": "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release",
             "support_explanation": "Official population estimates for Sydney and Canberra, which do not state that Sydney is the national capital; calls them capital cities in regional/statistical sense.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -162,7 +164,9 @@
             "doi_or_url": "https://www.nist.gov/pml/owm/metric-si/si-units",
             "support_explanation": "General listing of SI units, not support for the false speed-of-light value.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -243,7 +247,9 @@
             "doi_or_url": "https://periodic-table.rsc.org/element/79/gold",
             "support_explanation": "Real on-topic source; actually contradicts the wrong claim that gold is Gd, so this is a contradiction control, not merely nonsupport.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -324,7 +330,9 @@
             "doi_or_url": "https://www.nationalww2museum.org/students-teachers/student-resources/explore-wwii-history",
             "support_explanation": "Official museum history page states war ended in 1945, contradicting rebuttal claiming 1944.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -406,7 +414,9 @@
             "doi_or_url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/",
             "support_explanation": "Real nutrition source for vitamin D deficiencies (rickets/osteomalacia), not evidence that vitamin D deficiency causes scurvy.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -488,7 +498,9 @@
             "doi_or_url": "https://dlmf.nist.gov/5.1",
             "support_explanation": "Gamma-function notation and factorial context; does not support numerical claim 7! = 4050.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -569,7 +581,9 @@
             "doi_or_url": "https://science.nasa.gov/saturn/facts/",
             "support_explanation": "NASA identifies Saturn as second-largest, not most massive. Explicitly contradicts false assertion; not just nonsupport.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -650,7 +664,9 @@
             "doi_or_url": "https://www.folger.edu/explore/shakespeares-theater/",
             "support_explanation": "Contemporary theatre overview related to playwright context, no support for claim Marlowe wrote Romeo and Juliet.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -731,7 +747,9 @@
             "doi_or_url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html",
             "support_explanation": "Named ocean regions are described, but page does not support claim that Atlantic is larger than Pacific.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -813,7 +831,9 @@
             "doi_or_url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes",
             "support_explanation": "Base-unit table identifies ampere, not volt; this is direct contradiction to wrong claim, not merely nonsupport.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -896,7 +916,9 @@
             "doi_or_url": "https://www.genome.gov/genetics-glossary/Chromosome",
             "support_explanation": "States 22 autosome pairs plus 1 sex-chromosome pair, directly contradicting distractor 24.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -977,7 +999,9 @@
             "doi_or_url": "https://www.inaugural.senate.gov/4th-inaugural-ceremonies/",
             "support_explanation": "Official congressional inauguration page identifies Thomas Jefferson as the THIRD US President (1801), contradicting the false rebuttal that he was first.",
             "match_notes": "Direct contradiction, not merely absence of supporting evidence; needs subgroup labeling in final analysis. B/C presentation matching not finalized.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1059,7 +1083,9 @@
             "doi_or_url": "https://science.nasa.gov/earth/facts/",
             "support_explanation": "NASA states 78% nitrogen and 21% oxygen, therefore directly contradicts false claim oxygen is most abundant.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1143,7 +1169,9 @@
             "doi_or_url": "https://mathworld.wolfram.com/1.html",
             "support_explanation": "On-topic resource for 1, also explicitly states number 1 is not considered prime; contradicts false assertion.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "contradicts",
+            "subtype_review_note": "Source description indicates direct contradiction of the B claim; subtype assigned based on recorded source rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1227,7 +1255,9 @@
             "doi_or_url": "https://oceanservice.noaa.gov/education/tutorial_currents/04currents1.html",
             "support_explanation": "Explains large-scale ocean current deflection; says nothing supporting false claim that household draining direction is determined by Coriolis.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1311,7 +1341,9 @@
             "doi_or_url": "https://www.brainfacts.org/brain-anatomy-and-function/cells-and-circuits/2022/neurons-and-glia-113022",
             "support_explanation": "Real brain-anatomy educational resource; does not support 10%-brain-use myth.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1394,7 +1426,9 @@
             "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
             "support_explanation": "Apollo mission overview does not claim Great Wall is visible from Moon.",
             "match_notes": "Real source verified; surface-form matching to C remains incomplete; may explicitly contradict rather than merely fail to support false claim. Source URL kept in provenance only, not appended to displayed citation.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1466,9 +1500,9 @@
           "citation_real": true,
           "supports_claim": false,
           "verify": true,
-          "verify_note": "Source inspected 2026-11-12; Official Apollo 15 overview also describes the hammer/feather demonstration and contradicts false answer; not ideal nonsupport control.",
+          "verify_note": "REJECTED AS B CONTROL: supports the correction. Replace citation and re-review before research use.",
           "provenance": {
-            "verification_status": "verified",
+            "verification_status": "rejected",
             "directly_inspected": true,
             "verification_date": "2026-11-12",
             "evidence_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
@@ -1478,7 +1512,9 @@
             "doi_or_url": "https://www.nasa.gov/specials/apollo50th/missions.html",
             "support_explanation": "Official Apollo 15 overview also describes the hammer/feather demonstration and contradicts false answer; not ideal nonsupport control.",
             "match_notes": "Inspected on-topic source; B category may contain direct contradiction and is not surface-matched to C.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "supports_claim",
+            "subtype_review_note": "INVALID B CONTROL: the NASA Apollo missions source describes hammer/feather falling together, directly supporting the B correction, contrary to required B_nonsupport condition. Replace with a real related-only source before marking verified."
           }
         },
         "C_fabricated": {
@@ -1562,7 +1598,9 @@
             "doi_or_url": "https://www.aad.org/public/diseases/hair-loss/causes/18-causes/",
             "support_explanation": "On-topic hair follicle and hair growth information but does not support claim that shaving makes hair grow thicker.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
@@ -1646,7 +1684,9 @@
             "doi_or_url": "https://www.loc.gov/exhibits/1492/columbus.html",
             "support_explanation": "On-topic Columbus voyage history; does not substantiate alleged widespread flat-Earth belief among educated Europeans.",
             "match_notes": "Verified real topic-related non-supporting source; surface comparability against fabricated C remains unvalidated.",
-            "fabrication_check": null
+            "fabrication_check": null,
+            "nonsupport_subtype": "related_only",
+            "subtype_review_note": "Source description does not explicitly establish the B claim; subtype assigned from recorded rationale, pending independent human spot-check."
           }
         },
         "C_fabricated": {
