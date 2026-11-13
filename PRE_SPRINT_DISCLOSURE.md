@@ -41,3 +41,9 @@ Authored during the sprint (branch `sprint/m1-pilot-evidence`, AI-assisted, PI r
   (2 dataset checks) and `tests/test_v04.py` (gate fixture), so each still tests its original intent.
 
 `PROTOCOL.md` (the frozen experimental protocol) was not modified. No model experiments have been run.
+
+## Sprint-day M2 additions (13 November 2026)
+
+- `src/adaption_backend.py`, model-listing helper, runner backend registration and `--ids` selection.
+- `tests/test_adaption.py`, SDK requirement and `docs/M2_ADAPTION_PILOT.md`.
+- All represent sprint-day integration only; no real-model results were produced.
