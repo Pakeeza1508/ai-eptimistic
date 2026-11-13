@@ -51,7 +51,7 @@ B's missing `nonsupport_subtype` (choose `contradicts` or `related_only` after m
 review), and B/C visible-citation length/year/locator imbalances. This checks only metadata;
 it **does not browse the web, prove fabrication or count as a research experiment**.
 
-**Verified-status audit (last recorded evidence pass):** A=20/20, B=20/20, C=0/20;
+**Verified-status audit (last recorded evidence pass):** A=20/20, B=19/20 (S04 rejected as invalid control), C=0/20;
 thus no question is research-ready. Original 29-test suite and v0.4 suite should be rerun
 locally after every pull. See `data/CITATION_AUDIT_2026-11-12.md` and
 `PRE_SPRINT_DISCLOSURE.md` for evidence and attribution.
