@@ -76,7 +76,7 @@ def inspect_item(item, max_char_gap=40, max_word_gap=8):
         "C_characters": c["characters"],
         "B_words": b["words"],
         "C_words": c["words"],
-        "research_ready": all(v == "verified" for v in statuses.values()),
+        "research_ready": all(v == "verified" for v in statuses.values()) and not flags,
         "review_flags": flags,
     }
 
