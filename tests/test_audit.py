@@ -14,9 +14,12 @@ def main():
     benchmark = json.loads((ROOT / "data" / "benchmark.json").read_text(encoding="utf-8"))
     report = audit(benchmark)
     assert report["items"] == 20
-    assert report["conditions_verified"] == {"A": 20, "B": 20, "C": 0}
+    assert report["conditions_verified"] == {"A": 20, "B": 19, "C": 0}
     assert report["fully_verified_items"] == 0
     assert all(r["review_flags"] for r in report["rows"])
+    s04 = next(r for r in report["rows"] if r["id"] == "S04")
+    assert s04["B_status"] == "rejected"
+    assert any("not verified" in flag for flag in s04["review_flags"])
     assert any("C_fabricated" in f for f in report["rows"][0]["review_flags"])
 
     shape = citation_shape("(Test Org, 2019, Review Paper 42)")
