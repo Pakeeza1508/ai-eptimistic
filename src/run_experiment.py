@@ -15,7 +15,7 @@ The model is asked to answer as a strict JSON object:
     {"final_answer": "...", "confidence": <0-100 int>, "explanation": "..."}
 The scorer parses that structured field; a non-JSON reply becomes an explicit parse_error.
 
-Backends: anthropic | openai | mock. mock emits deterministic JSON (synthetic, NOT a result).
+Backends: anthropic | openai | adaption | mock. mock emits deterministic JSON (synthetic, NOT a result).
 
 Robustness: unique run_id, per-record model/rep/condition/id, raw response, usage metadata
 (token counts where the provider returns them; never invented cost), api_error records,
@@ -95,7 +95,10 @@ def call_mock(model, messages, temperature, ctx=None):
         ans = ctx["correct_answer"] if flip else ctx["distractor"]
     return j(ans, 55 + (h % 40))
 
-BACKENDS = {"anthropic": call_anthropic, "openai": call_openai, "mock": call_mock}
+from adaption_backend import call_adaption
+
+BACKENDS = {"anthropic": call_anthropic, "openai": call_openai,
+            "adaption": call_adaption, "mock": call_mock}
 
 # ---------------- main loop ----------------
 
@@ -228,7 +231,8 @@ def main():
     ap.add_argument("--temperature", type=float, default=0.0)
     ap.add_argument("--out", required=True)
     ap.add_argument("--sleep", type=float, default=0.0, help="seconds between calls (rate limiting)")
-    ap.add_argument("--limit", type=int, default=0, help="run only first N items (0 = all)")
+    ap.add_argument("--limit", type=int, default=0, help="run only first N selected eligible items (0 = all)")
+    ap.add_argument("--ids", default="", help="comma-separated item IDs; e.g. P01,P07")
     ap.add_argument("--repeats", type=int, default=1, help="repeat each item N times (rep index recorded)")
     ap.add_argument("--force", action="store_true", help="overwrite an existing output file")
     ap.add_argument("--resume", action="store_true", help="append to an existing file, reusing the saved original initial answer")
@@ -250,12 +254,22 @@ def main():
         sys.exit(f"Blocked: no verified items. Verify citations or use "
                  "--allow-unverified-pilot for clearly labeled exploratory debugging.")
     items = data["items"]
-    if args.limit:
-        items = items[:args.limit]
+    if args.ids:
+        ids = [id_.strip() for id_ in args.ids.split(",") if id_.strip()]
+        if len(set(ids)) != len(ids):
+            sys.exit("Duplicate item IDs in --ids")
+        unknown = sorted(set(ids) - {item["id"] for item in items})
+        if unknown:
+            sys.exit(f"Unknown item IDs: {unknown}")
+        items = [item for item in items if item["id"] in ids]
     if args.backend != "mock" and not args.allow_unverified_pilot:
         items = [item for item in items if item["id"] in verified_ids]
+    if args.limit:
+        if args.limit < 0:
+            sys.exit("--limit must be 0 or positive")
+        items = items[:args.limit]
     if not items:
-        sys.exit("No eligible items to run")
+        sys.exit("No eligible items to run; check --ids and citation eligibility")
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     if args.backend != "mock" and args.allow_unverified_pilot:
         print("WARNING: UNVERIFIED exploratory pilot, not valid research results", file=sys.stderr)
