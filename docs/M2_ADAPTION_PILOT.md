@@ -96,3 +96,34 @@ primary question. Do not rerun into the same `--out` without deliberate
 - A real model's failure to emit expected JSON is an observed parse error,
   not permission to fabricate or silently repair its response.
 - Record actual request count, outputs and token usage; don't invent costs.
+
+## Limited-credit safety checklist (14 November 2026)
+
+**Adaption inference prices / credit-to-token conversion were not verifiable from public docs.**
+Do not mistake credit estimates for dataset adaptation or training for hosted inference pricing.
+Before a paid inference, read actual account credit balance and the selected hosted
+model's per-token credit charge (or ask Adaption support). Model listing may not
+show billing rates. An unverified 1,250-credit promotional offer is not a budget.
+
+The runner performs five requests for one natural-start primary item (one initial,
+four rebuttals); four requests for one seeded-secondary item. For the eight
+pilot items with `--seed-secondary`: 5*5+3*4 = **37 provider calls** without
+errors. Fully natural starts require **40**. These numbers exclude retries.
+
+To minimize accidental expenditure:
+
+1. The Adaption SDK client uses `max_retries=0`; runner defaults to exactly
+   `--retries 1` with Adaption (one attempt, no extra attempt after error).
+2. Check credits and per-model charges **before** invoking the runner.
+3. Run `--ids P01 --limit 1 --retries 1` into a unique output file, then review
+   actual usage and account balance. Stop if either usage or billing differs from
+   expectations. Every model response is capped at 512 output tokens, not a
+   guarantee about cost or actual consumption.
+4. Do not use `--repeats` until cost and model quality have been measured.
+5. Do not use `--force` on an existing output; it would rerun and rebill.
+6. An authentication or parameter failure must be fixed offline; do not
+   continuously retry on credit-limited accounts.
+
+**Study caveat:** this code has not made a real Adaption inference call. A live
+API smoke test is needed to confirm that the selected model accepts the SDK
+options, including `temperature=0`, `store=False` and `tool_choice='none'`.
