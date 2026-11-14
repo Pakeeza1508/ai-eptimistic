@@ -14,7 +14,7 @@ def call_adaption(model, messages, temperature):
 
     # Import at call time to keep offline tests and other backends dependency-free.
     from run_experiment import SYSTEM
-    client = Adaption()
+    client = Adaption(max_retries=0)
     result = client.responses.create(
         model=model,
         instructions=SYSTEM,
@@ -45,4 +45,4 @@ def list_available_hosted_models():
         raise RuntimeError("ADAPTION_API_KEY is missing")
     from adaption import Adaption
     return [{"id": m.id, "display_name": getattr(m, "display_name", None)}
-            for m in Adaption().models.list(type="hosted").data]
+            for m in Adaption(max_retries=0).models.list(type="hosted").data]
