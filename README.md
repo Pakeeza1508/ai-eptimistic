@@ -183,3 +183,7 @@ SycEval (AIES 2025), SycoBench-600 (Findings ACL 2026), Ping et al. "Why LLMs Gi
 Positioning in PROTOCOL.md §7.
 #   a i - e p t i m i s t i c  
  
+
+### Kaggle GPU experimental pilot (sprint M2)
+
+See `docs/M2_KAGGLE_PILOT.md`. From VS Code, `python tools/build_kaggle_job.py --ids P01` creates a private Kaggle script package from audit-clean items; `python -m kaggle kernels push -p kaggle/sourcecheck` starts its remote GPU version. Download outputs to separate `results/kaggle/` folders after successful saved runs. **No real Kaggle model experiment has been run yet.**
