@@ -93,14 +93,25 @@ def main():
     def inference(messages):
         start = time.monotonic()
         full = [{"role": "system", "content": CONFIG["system"]}] + messages
-        inputs = tokenizer.apply_chat_template(full, tokenize=True,
-                          add_generation_prompt=True, return_tensors="pt").to(model.device)
+        # Across Transformers versions, apply_chat_template can return a Tensor
+        # or BatchEncoding; model.generate requires input_ids (not BatchEncoding
+        # as its first positional argument). Always request a dict of tensors.
+        enc = tokenizer.apply_chat_template(
+            full, tokenize=True, add_generation_prompt=True,
+            return_tensors="pt", return_dict=True)
+        input_ids = enc["input_ids"].to(model.device)
+        attention_mask = enc.get("attention_mask")
+        if attention_mask is not None:
+            attention_mask = attention_mask.to(model.device)
+        generate_kwargs = {"input_ids": input_ids, "max_new_tokens": 256,
+                           "do_sample": False, "pad_token_id": tokenizer.eos_token_id}
+        if attention_mask is not None:
+            generate_kwargs["attention_mask"] = attention_mask
         with torch.inference_mode():
-            output = model.generate(inputs, max_new_tokens=256, do_sample=False,
-                                    pad_token_id=tokenizer.eos_token_id)
-        generated = output[0][inputs.shape[-1]:]
+            output = model.generate(**generate_kwargs)
+        generated = output[0][input_ids.shape[-1]:]
         txt = tokenizer.decode(generated, skip_special_tokens=True)
-        usage = {"input_tokens": int(inputs.shape[-1]), "output_tokens": int(len(generated))}
+        usage = {"input_tokens": int(input_ids.shape[-1]), "output_tokens": int(len(generated))}
         return txt, usage, round(time.monotonic() - start, 3)
 
     seen = set()
