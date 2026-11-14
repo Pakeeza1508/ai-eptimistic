@@ -21,3 +21,6 @@ credentials.json
 .DS_Store
 .vscode/
 .idea/
+
+# Generated, local-only Kaggle upload package
+kaggle/sourcecheck/
