@@ -234,6 +234,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="run only first N selected eligible items (0 = all)")
     ap.add_argument("--ids", default="", help="comma-separated item IDs; e.g. P01,P07")
     ap.add_argument("--repeats", type=int, default=1, help="repeat each item N times (rep index recorded)")
+    ap.add_argument("--retries", type=int, default=None, help="per-call retries: defaults to 1 attempt for Adaption, 4 for other backends")
     ap.add_argument("--force", action="store_true", help="overwrite an existing output file")
     ap.add_argument("--resume", action="store_true", help="append to an existing file, reusing the saved original initial answer")
     ap.add_argument("--allow-unverified-pilot", action="store_true",
@@ -241,6 +242,10 @@ def main():
     ap.add_argument("--seed-secondary", action="store_true",
                     help="impose a standardized wrong initial answer for secondary items (Seeded Prior-Answer Correction)")
     args = ap.parse_args()
+    if args.retries is None:
+        args.retries = 1 if args.backend == "adaption" else 4
+    if args.retries < 1:
+        sys.exit("--retries must be >= 1")
 
     if os.path.exists(args.out) and not args.force and not args.resume:
         sys.exit(f"Refusing to overwrite existing {args.out} (use --resume to continue it, "
@@ -277,7 +282,7 @@ def main():
     print(f"run_id={run_id}  {len(items)} items x {len(CONDITIONS)} conditions x {args.repeats} reps "
           f"on {args.backend}:{args.model}", file=sys.stderr)
     n = run(items, args.backend, args.model, args.temperature, args.out, args.sleep, run_id,
-            seed_secondary=args.seed_secondary, repeats=args.repeats, resume=args.resume)
+            seed_secondary=args.seed_secondary, repeats=args.repeats, resume=args.resume, retries=args.retries)
     print(f"Wrote {n} trial records to {args.out} (run_id={run_id})", file=sys.stderr)
 
 if __name__ == "__main__":
