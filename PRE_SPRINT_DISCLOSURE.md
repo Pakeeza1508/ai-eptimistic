@@ -47,3 +47,7 @@ Authored during the sprint (branch `sprint/m1-pilot-evidence`, AI-assisted, PI r
 - `src/adaption_backend.py`, model-listing helper, runner backend registration and `--ids` selection.
 - `tests/test_adaption.py`, SDK requirement and `docs/M2_ADAPTION_PILOT.md`.
 - All represent sprint-day integration only; no real-model results were produced.
+
+## Sprint-day Kaggle GPU integration (14 November 2026)
+
+Added a locally generated private Kaggle job builder, hosted GPU inference script and VS Code run/download guide. These are new sprint integration assets, not pre-sprint work. No Kaggle inference or experimental results were generated during coding.
